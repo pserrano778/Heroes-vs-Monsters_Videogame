@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Heroes/Hechicero oscuro/Scene demo/demo.unity
+- path: Assets/Game/Scenes/Test.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
