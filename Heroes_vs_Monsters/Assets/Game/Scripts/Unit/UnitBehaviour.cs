@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class UnitBehaviour : MonoBehaviour
 {
-    private int currentHealth;
     public int health = 100;
+    private int currentHealth = 1;
     public int defense = 10;
     public float speed = 1.5f;
     public float attackRange = 2f;
+    public int damage = 5;
 
     private State state = State.Idle;
 
-    private GameObject target = null;
+    private UnitBehaviour target = null;
 
     public Animator anim;
     private Rigidbody2D body2d;
@@ -49,7 +51,10 @@ public class UnitBehaviour : MonoBehaviour
         while (state == State.Idle)
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
-            target = enemies[0];
+            if (enemies.Length > 0)
+            {
+                target = enemies[targetEnemy(enemies)].GetComponent<UnitBehaviour>();
+            }
 
             if (target != null)
             {
@@ -68,25 +73,27 @@ public class UnitBehaviour : MonoBehaviour
             // -- Handle input and movement --
             float targetPosition = target.transform.position.x;
             float distanceToTarget = targetPosition - transform.position.x;
-            print("distancia: " + attackRange);
             // Swap direction of sprite depending on walk direction
             if (distanceToTarget > attackRange)
             {
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                 body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
+
+                anim.SetBool("Running", true);
             } 
             else if (distanceToTarget < -attackRange)
             {
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 // Move
                 body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
-  
-                anim.SetInteger("AnimState", 2);
-                anim.SetBool("attacking", false);
+
+                anim.SetBool("Running", true);
+
             }
             else
             {
                 state = State.Attack;
+                anim.SetBool("Running", false);
             }
 
             yield return new WaitForSeconds(0.2f);
@@ -96,12 +103,33 @@ public class UnitBehaviour : MonoBehaviour
 
     IEnumerator AttackState()
     {
+        float animDuration = 0;
         while (state == State.Attack)
         {
-            anim.SetBool("Attack", true);
-            anim.speed = 2;
-            yield return new WaitForSeconds(2f);
+            if (target == null || target.currentHealth <= 0)
+            {
+                state = State.Idle;
+                anim.SetBool("Attack", false);
+                animDuration = 0.2f;
+            }
+            else
+            {
+                anim.SetBool("Attack", true);
+                animDuration = getAnimDuration();
+                target.takeDamage(damage);
+            }
+            yield return new WaitForSeconds(animDuration);
         }
+        GoToNextState();
+    }
+
+    IEnumerator DieState()
+    {
+        anim.SetBool("Dead", true);
+
+        Destroy(this.gameObject, getAnimDuration());
+
+        yield return 0;
     }
 
     void GoToNextState()
@@ -113,6 +141,24 @@ public class UnitBehaviour : MonoBehaviour
         StartCoroutine((IEnumerator)info.Invoke(this, null));
     }
 
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+        
+        if (currentHealth <= 0)
+        {
+        
+            state = State.Die;
+            this.tag = "Untagged";
+            GoToNextState(); //Revisar
+        }
+    }
+
+    public int getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
     private int targetEnemy(GameObject[] enemies)
     {
         int target = -1;
@@ -120,14 +166,17 @@ public class UnitBehaviour : MonoBehaviour
         double distance = double.MaxValue;
         for (int i=0; i<enemies.Length; i++)
         {
-            print(enemies[i].ToString());
-            if (enemies[i].transform.position.x < distance)
+            if (enemies[i].transform.position.x < distance && (enemies[i].GetComponent<UnitBehaviour>()).getCurrentHealth() > 0)
             {
                 target = i;
                 distance = enemies[i].transform.position.x;
-                print("entro");
             }
         }
         return target;
+    }
+
+    private float getAnimDuration()
+    {
+        return anim.GetCurrentAnimatorStateInfo(0).length * anim.GetCurrentAnimatorStateInfo(0).speed;
     }
 }
