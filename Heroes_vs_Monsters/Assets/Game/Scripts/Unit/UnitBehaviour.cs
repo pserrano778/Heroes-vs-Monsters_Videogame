@@ -1,11 +1,21 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class UnitBehaviour : MonoBehaviour
 {
     private int currentHealth;
     public int health = 100;
     public int defense = 10;
+    public float speed = 1.5f;
+    public float attackRange = 2f;
+
+    private State state = State.Idle;
+
+    private GameObject target = null;
+
+    public Animator anim;
+    private Rigidbody2D body2d;
 
     public enum State
     {
@@ -15,23 +25,9 @@ public class UnitBehaviour : MonoBehaviour
         Attack,
     }
 
-    public State state = State.Idle;
+    public string typeOfEnemy = "";
 
-    //public Transform target;
-
-    public float followRange = 10.0f;
-
-    public float idleRange = 10.0f;
-
-    public float m_speed = 4.0f;
-
-    public Animator anim;
-    private Rigidbody2D body2d;
-
-    private bool m_combatIdle = false;
-    private bool m_isDead = false;
-
-    // Use this for initialization
+    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -46,141 +42,66 @@ public class UnitBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
 
-        //Set AirSpeed in animator
-        anim.SetFloat("AirSpeed", body2d.velocity.y);
-
-        // -- Handle Animations --
-        //Death
-        if (Input.GetKeyDown("e"))
+    IEnumerator IdleState()
+    {
+        while (state == State.Idle)
         {
-            if (!m_isDead)
-                anim.SetTrigger("Death");
-            else
-                anim.SetTrigger("Recover");
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
+            target = enemies[0];
 
-            m_isDead = !m_isDead;
+            if (target != null)
+            {
+                state = State.Follow;
+            }
+
+            yield return 0;
         }
-
-        //Hurt
-        else if (Input.GetKeyDown("q"))
-            anim.SetTrigger("Hurt");
-
-        //Attack
-        else if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetTrigger("Attack");
-        }
-
-        //Change between idle and combat idle
-        else if (Input.GetKeyDown("f"))
-            m_combatIdle = !m_combatIdle;
-
-
-
-        //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
-            anim.SetInteger("AnimState", 2);
-
-        //Combat Idle
-        else if (m_combatIdle)
-            anim.SetInteger("AnimState", 1);
-
-        //Idle
-        else
-            anim.SetInteger("AnimState", 0);
+        GoToNextState();
     }
 
     IEnumerator FollowState()
     {
-        Debug.Log("Follow: Enter");
         while (state == State.Follow)
         {
             // -- Handle input and movement --
-            float distance = Input.GetAxis("Horizontal");
-
+            float targetPosition = target.transform.position.x;
+            float distanceToTarget = targetPosition - transform.position.x;
+            print("distancia: " + attackRange);
             // Swap direction of sprite depending on walk direction
-            if (distance > followRange)
-                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            else if (distance < -followRange)
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-
-            // Move
-            body2d.velocity = new Vector2(distance * m_speed, body2d.velocity.y);
-
-            anim.SetFloat("speed", agent.velocity.magnitude);
-            anim.SetBool("attacking", false);
-
-            if (GetDistance() > idleRange)
+            if (distanceToTarget > attackRange)
             {
-                state = State.Idle;
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
+            } 
+            else if (distanceToTarget < -attackRange)
+            {
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                // Move
+                body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
+  
+                anim.SetInteger("AnimState", 2);
+                anim.SetBool("attacking", false);
             }
-            else if ((GetDistance() <= agent.stoppingDistance + 0.5f) && (agent.pathStatus == NavMeshPathStatus.PathComplete))
+            else
             {
                 state = State.Attack;
             }
 
             yield return new WaitForSeconds(0.2f);
         }
-
-        Debug.Log("Follow: Exit");
         GoToNextState();
-    }
-
-    IEnumerator IdleState()
-    {
-        Debug.Log("Idle: Enter");
-
-        agent.isStopped = true;
-        anim.SetFloat("speed", 0);
-        anim.SetBool("attacking", false);
-
-        while (state == State.Idle)
-        {
-            if (GetDistance() < followRange)
-            {
-                state = State.Follow;
-            }
-
-            yield return 0;
-        }
-
-        Debug.Log("Idle: Exit");
-        GoToNextState();
-    }
-
-    IEnumerator DieState()
-    {
-        Debug.Log("Die: Enter");
-        agent.isStopped = true;
-        anim.SetBool("dead", true);
-
-        Destroy(this.gameObject, 5);
-
-        Debug.Log("Idle: Exit");
-
-        yield return 0;
     }
 
     IEnumerator AttackState()
     {
-        Debug.Log("Attack: Enter");
-
-        anim.SetFloat("speed", 0);
-        anim.SetBool("attacking", true);
-
         while (state == State.Attack)
         {
-            RotateTowards(target);
-
-            if (GetDistance() > (agent.stoppingDistance + 1))
-            {
-                state = State.Follow;
-            }
-            yield return 0;
+            anim.SetBool("Attack", true);
+            anim.speed = 2;
+            yield return new WaitForSeconds(2f);
         }
-
-        GoToNextState();
     }
 
     void GoToNextState()
@@ -191,69 +112,22 @@ public class UnitBehaviour : MonoBehaviour
         System.Reflection.MethodInfo info = GetType().GetMethod(methodName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
         StartCoroutine((IEnumerator)info.Invoke(this, null));
     }
-}
 
-public class ZombieBehaviour : MonoBehaviour
-{
-    
-
-    private Animator anim;
-
-    
-
-    private NavMeshAgent agent;
-
-
-    public void OnCollisionEnter(Collision collision)
+    private int targetEnemy(GameObject[] enemies)
     {
-        if (currentHealth > 0)
+        int target = -1;
+
+        double distance = double.MaxValue;
+        for (int i=0; i<enemies.Length; i++)
         {
-            TakeDamage(UnityEngine.Random.Range(5, 20));
+            print(enemies[i].ToString());
+            if (enemies[i].transform.position.x < distance)
+            {
+                target = i;
+                distance = enemies[i].transform.position.x;
+                print("entro");
+            }
         }
-    }
-
-    private void TakeDamage(int damageToDeal)
-    {
-        currentHealth -= damageToDeal;
-
-        if (currentHealth <= 0)
-        {
-            state = State.Die;
-
-        }
-        else
-        {
-            followRange = Mathf.Max(GetDistance(), followRange);
-            state = State.Follow;
-            anim.SetTrigger("hit");
-        }
-
-        GoToNextState();
-    }
-
-    private void RotateTowards(Transform target)
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotateSpeed);
-    }
-
-    
-
-    public float GetDistance()
-    {
-        return (transform.position - target.transform.position).magnitude;
-    }
-
-    
-
-    public int damageAmount = 20;
-
-    public void PhysicalAttack()
-    {
-        if (GetDistance() <= agent.stoppingDistance + 0.5f)
-        {
-            target.SendMessage("TakeDamage", damageAmount, SendMessageOptions.DontRequireReceiver);
-        }
+        return target;
     }
 }
