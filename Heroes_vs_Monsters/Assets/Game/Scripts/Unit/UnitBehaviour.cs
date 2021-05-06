@@ -10,7 +10,7 @@ public class UnitBehaviour : MonoBehaviour
     public int defense = 10;
     public float speed = 1.5f;
     public float attackRange = 2f;
-    public int damage = 5;
+    public int damage = 50;
 
     private State state = State.Idle;
 
@@ -58,6 +58,7 @@ public class UnitBehaviour : MonoBehaviour
 
             if (target != null)
             {
+                
                 state = State.Follow;
             }
 
@@ -103,10 +104,11 @@ public class UnitBehaviour : MonoBehaviour
 
     IEnumerator AttackState()
     {
-        float animDuration = 0;
+        float animDuration = 200;
         while (state == State.Attack)
         {
-            if (target == null || target.currentHealth <= 0)
+            
+            if (target == null || target.getCurrentHealth() <= 0)
             {
                 state = State.Idle;
                 anim.SetBool("Attack", false);
@@ -116,9 +118,17 @@ public class UnitBehaviour : MonoBehaviour
             {
                 anim.SetBool("Attack", true);
                 animDuration = getAnimDuration();
-                target.takeDamage(damage);
             }
             yield return new WaitForSeconds(animDuration);
+            print(tag + " " + animDuration);
+            if (state == State.Attack)
+            {
+                target.takeDamage(damage);
+                if (target.getCurrentHealth() <= 0)
+                {
+                    target = null;
+                }
+            }
         }
         GoToNextState();
     }
@@ -127,7 +137,7 @@ public class UnitBehaviour : MonoBehaviour
     {
         anim.SetBool("Dead", true);
 
-        Destroy(this.gameObject, getAnimDuration());
+        Destroy(this.gameObject, getAnimDuration() + 2);
 
         yield return 0;
     }
@@ -150,7 +160,7 @@ public class UnitBehaviour : MonoBehaviour
         
             state = State.Die;
             this.tag = "Untagged";
-            GoToNextState(); //Revisar
+
         }
     }
 

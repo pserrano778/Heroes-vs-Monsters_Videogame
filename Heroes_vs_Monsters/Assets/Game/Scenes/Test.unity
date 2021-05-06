@@ -980,7 +980,7 @@ MonoBehaviour:
   defense: 10
   speed: 1.5
   attackRange: 2
-  damage: 5
+  damage: 50
   anim: {fileID: 757453593}
   typeOfEnemy: Monster
 --- !u!95 &757453593 stripped
