@@ -7,9 +7,11 @@ public class UnitBehaviour : MonoBehaviour
 {
     public int health = 100;
     private int currentHealth = 1;
+    private int lane = -1;
+    public int cost;
     public int defense = 10;
     public float speed = 1.5f;
-    public float attackRange = 2f;
+    public float attackRange = 1f;
     public int damage = 50;
 
     private State state = State.Idle;
@@ -53,12 +55,15 @@ public class UnitBehaviour : MonoBehaviour
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
             if (enemies.Length > 0)
             {
-                target = enemies[targetEnemy(enemies)].GetComponent<UnitBehaviour>();
+                int newTarget = targetEnemy(enemies);
+                if (newTarget > -1)
+                {
+                    target = enemies[newTarget].GetComponent<UnitBehaviour>();
+                }
             }
 
             if (target != null)
             {
-                
                 state = State.Follow;
             }
 
@@ -74,36 +79,50 @@ public class UnitBehaviour : MonoBehaviour
             // -- Handle input and movement --
             float targetPosition = target.transform.position.x;
             float distanceToTarget = targetPosition - transform.position.x;
+
+            float waitTime = 0.1f;
+
             // Swap direction of sprite depending on walk direction
-            if (distanceToTarget > attackRange)
+            if (distanceToTarget < 0)
+            {
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            }
+            else
             {
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            }
+            if (distanceToTarget > attackRange)
+            {
+                
                 body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
 
                 anim.SetBool("Running", true);
             } 
             else if (distanceToTarget < -attackRange)
             {
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                
                 // Move
                 body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
 
                 anim.SetBool("Running", true);
-
             }
             else
             {
+                body2d.velocity = new Vector2(0, 0);
+
                 state = State.Attack;
-                anim.SetBool("Running", false);
+                anim.SetBool("Attack", true);
+                waitTime = 0;
             }
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(waitTime);
         }
         GoToNextState();
     }
 
     IEnumerator AttackState()
     {
+        
         float animDuration = 200;
         while (state == State.Attack)
         {
@@ -112,15 +131,20 @@ public class UnitBehaviour : MonoBehaviour
             {
                 state = State.Idle;
                 anim.SetBool("Attack", false);
-                animDuration = 0.2f;
+                anim.SetBool("Running", false);
+                animDuration = 0.1f;
             }
             else
             {
-                anim.SetBool("Attack", true);
+                if (tag == "Hero")
+                {
+                    print(target.ToString());
+                }
+                
                 animDuration = getAnimDuration();
             }
             yield return new WaitForSeconds(animDuration);
-            print(tag + " " + animDuration);
+
             if (state == State.Attack)
             {
                 target.takeDamage(damage);
@@ -135,8 +159,6 @@ public class UnitBehaviour : MonoBehaviour
 
     IEnumerator DieState()
     {
-        anim.SetBool("Dead", true);
-
         Destroy(this.gameObject, getAnimDuration() + 2);
 
         yield return 0;
@@ -153,14 +175,19 @@ public class UnitBehaviour : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        currentHealth -= damage;
+        int damageTaken = 1;
+        if (damage - defense > 0)
+        {
+            damageTaken = damage - defense;
+        }
+        currentHealth -= damageTaken;
         
         if (currentHealth <= 0)
         {
         
             state = State.Die;
             this.tag = "Untagged";
-
+            anim.SetBool("Dead", true);
         }
     }
 
@@ -176,7 +203,9 @@ public class UnitBehaviour : MonoBehaviour
         double distance = double.MaxValue;
         for (int i=0; i<enemies.Length; i++)
         {
-            if (enemies[i].transform.position.x < distance && (enemies[i].GetComponent<UnitBehaviour>()).getCurrentHealth() > 0)
+            print(i);
+            if (enemies[i].transform.position.x < distance && (enemies[i].GetComponent<UnitBehaviour>()).getCurrentHealth() > 0  
+                && enemies[i].GetComponent<UnitBehaviour>().getLane() == this.getLane())
             {
                 target = i;
                 distance = enemies[i].transform.position.x;
@@ -188,5 +217,15 @@ public class UnitBehaviour : MonoBehaviour
     private float getAnimDuration()
     {
         return anim.GetCurrentAnimatorStateInfo(0).length * anim.GetCurrentAnimatorStateInfo(0).speed;
+    }
+
+    public int getLane()
+    {
+        return lane;
+    }
+
+    public void setLane(int lane)
+    {
+        this.lane = lane;
     }
 }
