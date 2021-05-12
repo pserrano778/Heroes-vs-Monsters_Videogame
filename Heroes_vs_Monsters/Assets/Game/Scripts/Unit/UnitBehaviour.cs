@@ -136,11 +136,6 @@ public class UnitBehaviour : MonoBehaviour
             }
             else
             {
-                if (tag == "Hero")
-                {
-                    print(target.ToString());
-                }
-                
                 animDuration = getAnimDuration();
             }
             yield return new WaitForSeconds(animDuration);
@@ -203,7 +198,6 @@ public class UnitBehaviour : MonoBehaviour
         double distance = double.MaxValue;
         for (int i=0; i<enemies.Length; i++)
         {
-            print(i);
             if (enemies[i].transform.position.x < distance && (enemies[i].GetComponent<UnitBehaviour>()).getCurrentHealth() > 0  
                 && enemies[i].GetComponent<UnitBehaviour>().getLane() == this.getLane())
             {

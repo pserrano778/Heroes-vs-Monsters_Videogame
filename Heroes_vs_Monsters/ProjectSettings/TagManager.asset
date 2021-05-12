@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hero
   - Monster
+  - Spawn
   layers:
   - Default
   - TransparentFX

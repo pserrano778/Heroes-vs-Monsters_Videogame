@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnUnit : MonoBehaviour
 {
-    public Camera nonVRCamera;
+    public Camera camera;
     public GameObject prefab;
 
     void Update()
@@ -12,15 +12,19 @@ public class SpawnUnit : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Left mouse clicked");
-            RaycastHit hit;
-            Ray ray = nonVRCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
-            Physics.Raycast(ray, out hit);
-  
-            GameObject newUnit = Instantiate(prefab, hit.point, Quaternion.identity);
-            newUnit.tag = "Hero";
-            newUnit.GetComponent<UnitBehaviour>().setLane(-1);
-            print("My object is clicked by mouse");
-        }
+            if (hit)
+            {
+                if (hit.collider.tag == "Spawn")
+                {
+                    Vector2 spawnPoint = hit.collider.GetComponent<Spawner>().spawnPoint;
+                    int lane = hit.collider.GetComponent<Spawner>().lane;
+                    GameObject newUnit = Instantiate(prefab, spawnPoint, Quaternion.identity);
+                    newUnit.tag = "Hero";
+                    newUnit.GetComponent<UnitBehaviour>().setLane(lane);
+                }
+            }
+        }   
     }
 }
