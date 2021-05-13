@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 
-public class UnitBehaviour : MonoBehaviour
+public class UnitBehaviour : BasicBehaviour
 {
-    public int health = 100;
-    private int currentHealth = 1;
-    private int lane = -1;
+    protected int lane = -1;
     public int cost;
-    public int defense = 10;
     public float speed = 1.5f;
     public float attackRange = 1f;
     public int damage = 50;
 
-    private State state = State.Idle;
+    protected State state = State.Idle;
 
-    private UnitBehaviour target = null;
+    protected BasicBehaviour target = null;
 
     public Animator anim;
-    private Rigidbody2D body2d;
+    protected Rigidbody2D body2d;
 
     public enum State
     {
@@ -46,12 +43,12 @@ public class UnitBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         
     }
 
-    IEnumerator IdleState()
+    protected virtual IEnumerator IdleState()
     {
         while (state == State.Idle)
         {
@@ -75,7 +72,7 @@ public class UnitBehaviour : MonoBehaviour
         GoToNextState();
     }
 
-    IEnumerator FollowState()
+    protected IEnumerator FollowState()
     {
         while (state == State.Follow)
         {
@@ -123,7 +120,7 @@ public class UnitBehaviour : MonoBehaviour
         GoToNextState();
     }
 
-    IEnumerator AttackState()
+    protected IEnumerator AttackState()
     {
         
         float animDuration = 200;
@@ -155,23 +152,25 @@ public class UnitBehaviour : MonoBehaviour
         GoToNextState();
     }
 
-    IEnumerator DieState()
+    protected IEnumerator DieState()
     {
         Destroy(this.gameObject, getAnimDuration() + 2);
 
         yield return 0;
     }
 
-    void GoToNextState()
+    protected void GoToNextState()
     {
         StopAllCoroutines();
 
         string methodName = state.ToString() + "State";
         System.Reflection.MethodInfo info = GetType().GetMethod(methodName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
         StartCoroutine((IEnumerator)info.Invoke(this, null));
     }
 
-    public void takeDamage(int damage)
+
+    public override void takeDamage(int damage)
     {
         int damageTaken = 1;
         if (damage - defense > 0)
@@ -179,19 +178,13 @@ public class UnitBehaviour : MonoBehaviour
             damageTaken = damage - defense;
         }
         currentHealth -= damageTaken;
-        
+
         if (currentHealth <= 0)
         {
-        
             state = State.Die;
             this.tag = "Untagged";
             anim.SetBool("Dead", true);
         }
-    }
-
-    public int getCurrentHealth()
-    {
-        return currentHealth;
     }
 
     public virtual int TargetEnemy(GameObject[] enemies)
@@ -211,7 +204,7 @@ public class UnitBehaviour : MonoBehaviour
         return target;
     }
 
-    private float getAnimDuration()
+    protected float getAnimDuration()
     {
         return anim.GetCurrentAnimatorStateInfo(0).length * anim.GetCurrentAnimatorStateInfo(0).speed;
     }

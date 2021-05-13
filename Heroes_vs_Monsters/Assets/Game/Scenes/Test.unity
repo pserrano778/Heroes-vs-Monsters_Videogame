@@ -140,14 +140,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  cost: 0
   defense: 10
+  cost: 0
   speed: 1.5
   attackRange: 1
   damage: 50
   anim: {fileID: 84716227}
   typeOfEnemy: Hero
-  nexusStone: {fileID: 1105107864}
+  nexusStone: {fileID: 1105107867}
 --- !u!95 &84716227 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95734438044755836, guid: 3248535f6a2562c489a1223a75951ef2,
@@ -1090,8 +1090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  cost: 0
   defense: 10
+  cost: 0
   speed: 1.5
   attackRange: 0.9
   damage: 100
@@ -1113,6 +1113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105107866}
   - component: {fileID: 1105107865}
+  - component: {fileID: 1105107867}
   m_Layer: 0
   m_Name: NexusStone
   m_TagString: Untagged
@@ -1184,6 +1185,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &1105107867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105107864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dea0e7699b718947bfd21be7dda3d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  defense: 0
 --- !u!1 &1230912326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1738,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1463392086428580, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
       propertyPath: m_Name
-      value: HeavyBandit (1)
+      value: HeavyBandit
       objectReference: {fileID: 0}
     - target: {fileID: 1463392086428580, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
       propertyPath: m_IsActive
