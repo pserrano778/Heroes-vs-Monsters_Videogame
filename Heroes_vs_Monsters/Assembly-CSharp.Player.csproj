@@ -663,6 +663,7 @@
   <ItemGroup>
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Spawner.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitBehaviour.cs" />

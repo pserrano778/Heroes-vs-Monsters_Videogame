@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour
 {
     public int lane;
     public Vector2 spawnPoint;
+    public string typeOfUnit;
+
+
     // Start is called before the first frame update
     void Start()
     {

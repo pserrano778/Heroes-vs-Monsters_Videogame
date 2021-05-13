@@ -39,7 +39,10 @@ public class UnitBehaviour : MonoBehaviour
 
         currentHealth = health;
 
-        GoToNextState();
+        if (lane != -1)
+        {
+            GoToNextState();
+        }
     }
 
     // Update is called once per frame
@@ -55,7 +58,7 @@ public class UnitBehaviour : MonoBehaviour
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
             if (enemies.Length > 0)
             {
-                int newTarget = targetEnemy(enemies);
+                int newTarget = TargetEnemy(enemies);
                 if (newTarget > -1)
                 {
                     target = enemies[newTarget].GetComponent<UnitBehaviour>();
@@ -191,7 +194,7 @@ public class UnitBehaviour : MonoBehaviour
         return currentHealth;
     }
 
-    private int targetEnemy(GameObject[] enemies)
+    public virtual int TargetEnemy(GameObject[] enemies)
     {
         int target = -1;
 
