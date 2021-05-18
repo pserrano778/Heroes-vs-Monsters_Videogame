@@ -62,11 +62,28 @@ public class SpawnUnit : MonoBehaviour
 
     [PunRPC]
     public void SpawnUnitAtPoint(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
-    {
-        print("nombre: " + nombrePrefab + " fin");
-
-        UnitBehaviour newUnit = (UnitBehaviour)Instantiate(GetComponent<UnitBehaviour>(nombrePrefab), spawnPoint, Quaternion.identity);
+    {   
+        UnitBehaviour newUnit = Instantiate(FindUnit(nombrePrefab), spawnPoint, Quaternion.identity);
         newUnit.tag = tag;
         newUnit.GetComponent<UnitBehaviour>().setLane(lane);
+    }
+
+    private UnitBehaviour FindUnit(string name)
+    {
+        UnitBehaviour unit = null;
+
+        GameObject[] units = GameObject.FindGameObjectsWithTag("Prefab");
+
+        bool encontrado = false;
+
+        for (int i=0; i<units.Length && !encontrado; i++)
+        {
+            if (units[i].name == name)
+            {
+                encontrado = true;
+                unit = units[i].GetComponent<UnitBehaviour>();
+            }
+        }
+        return unit;
     }
 }
