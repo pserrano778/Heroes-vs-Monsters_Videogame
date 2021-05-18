@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class SpawnUnit : MonoBehaviour
 {
     public Camera camera;
@@ -32,13 +32,13 @@ public class SpawnUnit : MonoBehaviour
                 }
 
                 else if (hit.collider.tag == "Spawn" && unitSelected)
-                {
+                {      
                     Spawner selectedSpawner = hit.collider.GetComponent<Spawner>();
+
                     Vector2 spawnPoint = selectedSpawner.spawnPoint;
-                    int lane = selectedSpawner.lane;
-                    UnitBehaviour newUnit = Instantiate(prefab, spawnPoint, Quaternion.identity);
-                    newUnit.tag = selectedSpawner.typeOfUnit;
-                    newUnit.GetComponent<UnitBehaviour>().setLane(lane);
+                    PhotonView photonView = PhotonView.Get(this);
+                    photonView.RPC("SpawnUnitAtPoint", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
+
                     ChangeVisibility(false);
                     unitSelected = false;
                 }
@@ -58,5 +58,15 @@ public class SpawnUnit : MonoBehaviour
         {
             spawnPoints[i].SetActive(visible);
         }
+    }
+
+    [PunRPC]
+    public void SpawnUnitAtPoint(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
+    {
+        print("nombre: " + nombrePrefab + " fin");
+
+        UnitBehaviour newUnit = (UnitBehaviour)Instantiate(GetComponent<UnitBehaviour>(nombrePrefab), spawnPoint, Quaternion.identity);
+        newUnit.tag = tag;
+        newUnit.GetComponent<UnitBehaviour>().setLane(lane);
     }
 }
