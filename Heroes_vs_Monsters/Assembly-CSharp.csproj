@@ -65,8 +65,6 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
-    <Compile Include="Assets\Game\Scripts\Network\NetworkPlayer.cs" />
-    <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />

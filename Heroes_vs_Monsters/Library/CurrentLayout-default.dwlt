@@ -137,8 +137,8 @@ MonoBehaviour:
     y: 0
     width: 1504
     height: 947
-  m_MinSize: {x: 402, y: 342}
-  m_MaxSize: {x: 8002, y: 8042}
+  m_MinSize: {x: 403, y: 342}
+  m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
   controlID: 70
 --- !u!114 &7
@@ -162,8 +162,8 @@ MonoBehaviour:
     y: 0
     width: 1504
     height: 670
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
   controlID: 71
 --- !u!114 &8
@@ -267,8 +267,8 @@ MonoBehaviour:
     y: 0
     width: 416
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -450,9 +450,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 28350000
+      m_SelectedIDs: 04f3ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 4ef9ffff
+      m_ExpandedIDs: 9ef6ffffecf6fffff8f6ffff56fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -512,9 +512,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.4434056, y: -0.57333475, z: -10.388317}
+    m_Target: {x: 0.17465243, y: 0.10677783, z: -4.7254286}
     speed: 2
-    m_Value: {x: -0.4434056, y: -0.57333475, z: -10.388317}
+    m_Value: {x: 0.17465243, y: 0.10677783, z: -4.7254286}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -564,9 +564,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.2154427
+    m_Target: 10
     speed: 2
-    m_Value: 7.2154427
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -710,20 +710,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game/Scripts/Unit
+    - Assets/Game/Scripts/Network
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game/Scripts/Unit
+  - Assets/Game/Scripts/Network
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\Heroes-vs-Monsters_Videogame\Heroes_vs_Monsters
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 159}
-    m_SelectedIDs: 42410000
-    m_LastClickedID: 16706
-    m_ExpandedIDs: 0000000016400000184000001a4000001c4000001e400000204000002240000024400000264000002840000000ca9a3b
+    scrollPos: {x: 0, y: 111}
+    m_SelectedIDs: 523e0000
+    m_LastClickedID: 15954
+    m_ExpandedIDs: 00000000303e0000323e0000343e0000363e0000383e00003a3e00003c3e00003e3e0000403e0000423e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -751,7 +751,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016400000184000001a4000001c4000001e4000002040000022400000244000002640000028400000
+    m_ExpandedIDs: 00000000303e0000323e0000343e0000363e0000383e00003a3e00003c3e00003e3e0000403e0000423e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -776,9 +776,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 28350000
-    m_LastClickedInstanceID: 13608
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 04f3ffff
+    m_LastClickedInstanceID: -3324
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000f0550000b25a0000e65a0000245b0000cc39000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -795,7 +795,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
