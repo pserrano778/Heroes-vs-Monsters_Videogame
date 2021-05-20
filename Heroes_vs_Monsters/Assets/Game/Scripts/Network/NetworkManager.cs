@@ -7,6 +7,7 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    private List<RoomInfo> roomList = new List<RoomInfo>();
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connect To Server.");
-        List<RoomInfo> roomList = new List<RoomInfo>();
+        
 
         base.OnConnectedToMaster();
         RoomOptions roomOptions = new RoomOptions();
@@ -31,8 +32,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.IsOpen = true;
         PhotonNetwork.JoinLobby(TypedLobby.Default);
         TypedLobby lobby = PhotonNetwork.CurrentLobby;
-        
-        OnRoomListUpdate(roomList);
         
         string room = "";
         print(roomList);
@@ -45,7 +44,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             room = "Room" + (PhotonNetwork.CountOfRooms + 1);
         }
+        print("contador: " + roomList.Count);
         PhotonNetwork.JoinOrCreateRoom(room, roomOptions, TypedLobby.Default);
+        
     }
 
     public override void OnJoinedRoom()
@@ -71,5 +72,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        base.OnRoomListUpdate(roomList);
+        
+        this.roomList = roomList;
+        print(" dsds: " + roomList.Count);
     }
 }
