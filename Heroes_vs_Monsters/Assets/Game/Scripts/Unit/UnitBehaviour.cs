@@ -36,6 +36,15 @@ public class UnitBehaviour : BasicBehaviour
 
         currentHealth = health;
 
+        if (tag == "Hero")
+        {
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+
         if (lane != -1)
         {
             GoToNextState();
