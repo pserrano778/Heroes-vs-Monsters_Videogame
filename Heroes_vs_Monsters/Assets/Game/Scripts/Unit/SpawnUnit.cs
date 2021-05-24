@@ -2,16 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
+
 public class SpawnUnit : MonoBehaviour
 {
     public Camera camera;
     private UnitBehaviour prefab;
     private bool unitSelected;
-    public GameObject[] spawnPoints;
+    private GameObject[] spawnPoints;
+    public GameObject[] heroesSpawnPoints;
+    public GameObject[] monstersSpawnPoints;
+    public GameObject[] heroesPrefabs;
+    public GameObject[] monstersPrefabs;
 
     // Start is called before the first frame update
     void Start()
     {
+        string typeOfPlayer = NetworkManager.GetTypeOfPlayer();
+
+        // set spawn points and prefabs to player
+        // delete object depending on type of player
+        if (typeOfPlayer == "Heroes")
+        {
+            spawnPoints = monstersSpawnPoints;
+            ChangeVisibility(false);
+
+            spawnPoints = heroesSpawnPoints;
+            for (int i = 0; i < monstersPrefabs.Length; i++)
+            {
+                monstersPrefabs[i].SetActive(false);
+                //Destroy(monstersPrefabs[i]);
+            }
+        }
+        else
+        {
+            spawnPoints = heroesSpawnPoints;
+            ChangeVisibility(false);
+
+            spawnPoints = monstersSpawnPoints;
+
+            for (int i = 0; i < heroesPrefabs.Length; i++)
+            {
+                heroesPrefabs[i].SetActive(false);
+                //Destroy(heroesPrefabs[i]);
+            }
+        }
+
+        // free memory if player doesn't need the array
+        // Array.Clear(monstersPrefabs, 0, monstersPrefabs.Length - 1);
+        // Array.Clear(heroesPrefabs, 0, heroesPrefabs.Length - 1);
+        // Array.Clear(monstersSpawnPoints, 0, monstersSpawnPoints.Length - 1);
+        // Array.Clear(heroesSpawnPoints, 0, heroesSpawnPoints.Length - 1);
+
         ChangeVisibility(false);
         unitSelected = false;
     }
@@ -37,7 +79,8 @@ public class SpawnUnit : MonoBehaviour
 
                     Vector2 spawnPoint = selectedSpawner.spawnPoint;
                     PhotonView photonView = PhotonView.Get(this);
-                    photonView.RPC("SpawnUnitAtPoint", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
+                    photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
+                    //SpawnUnitAtPoint(prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
 
                     ChangeVisibility(false);
                     unitSelected = false;
@@ -61,10 +104,18 @@ public class SpawnUnit : MonoBehaviour
     }
 
     [PunRPC]
-    public void SpawnUnitAtPoint(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
+    public void SpawnUnitAtPointRPC(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
     {   
-        UnitBehaviour newUnit = Instantiate(FindUnit(nombrePrefab), spawnPoint, Quaternion.identity);
+        UnitBehaviour newUnit = Instantiate(Resources.Load(nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
         newUnit.tag = tag;
+        newUnit.GetComponent<UnitBehaviour>().setLane(lane);
+    }
+
+
+    public void SpawnUnitAtPoint(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
+    {
+        UnitBehaviour newUnit = PhotonNetwork.Instantiate(nombrePrefab, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
+        newUnit.tag = tag;  
         newUnit.GetComponent<UnitBehaviour>().setLane(lane);
     }
 

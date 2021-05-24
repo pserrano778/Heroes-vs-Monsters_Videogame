@@ -8,7 +8,7 @@ using Photon.Realtime;
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     private List<RoomInfo> roomList = new List<RoomInfo>();
-    private string typeOfPlayer = "";
+    static private string typeOfPlayer = "";
     private string enemyTypeOfPlayer = "";
 
     // Type of lobby
@@ -25,7 +25,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void FindGameAs(string typeOfPlayer)
     {
-        this.typeOfPlayer = typeOfPlayer;
+        NetworkManager.typeOfPlayer = typeOfPlayer;
 
         // Set the type of units that the enemy will control
         if (typeOfPlayer == "Heroes")
@@ -122,5 +122,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         // Load the game
         SceneManager.LoadScene(levelName);
+    }
+
+    static public string GetTypeOfPlayer()
+    {
+        return typeOfPlayer;
     }
 }
