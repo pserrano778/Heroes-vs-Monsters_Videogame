@@ -10,6 +10,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private List<RoomInfo> roomList = new List<RoomInfo>();
     static private string typeOfPlayer = "";
     private string enemyTypeOfPlayer = "";
+    private bool createdRoom = false;
 
     // Type of lobby
     private TypedLobby sqlLobby = new TypedLobby("customSqlLobby", LobbyType.SqlLobby);
@@ -17,14 +18,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // Sql column that will be used to match the players (Hero player vs Monster player)
     public const string TYPE_PROP_KEY = "C0";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PhotonNetwork.JoinLobby();
-    }
-
     public void FindGameAs(string typeOfPlayer)
     {
+        if (createdRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+            createdRoom = false;
+        }
+
         NetworkManager.typeOfPlayer = typeOfPlayer;
 
         // Set the type of units that the enemy will control
@@ -89,6 +90,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         // create the room
         PhotonNetwork.CreateRoom(null, roomOptions, sqlLobby);
+        createdRoom = true;
     }
 
     public override void OnJoinedRoom()
@@ -118,10 +120,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        print("dESCONEXIÓN");
+        base.OnDisconnected(cause); 
+    }
+
     public void LoadLevel(string levelName)
     {
         // Load the game
-        SceneManager.LoadScene(levelName);
+        PhotonNetwork.LoadLevel(levelName);
     }
 
     static public string GetTypeOfPlayer()

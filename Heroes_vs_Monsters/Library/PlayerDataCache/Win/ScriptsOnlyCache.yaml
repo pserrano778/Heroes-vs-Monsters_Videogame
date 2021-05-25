@@ -2,11 +2,13 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - BasicBehaviour
+    - Finish
     - MonsterBehaviour
     - NetworkManager
     - NetworkPlayerSpawner
     - SpawnUnit
     - Spawner
+    - TimeManagement
     - UnitBehaviour
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -240,11 +242,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11284}
     - Class: 114
+      Script: {instanceID: 11286}
+    - Class: 114
       Script: {instanceID: 11318}
     - Class: 114
       Script: {instanceID: 11596}
     - Class: 114
       Script: {instanceID: 11696}
+    - Class: 114
+      Script: {instanceID: 11708}
     - Class: 114
       Script: {instanceID: 12464}
     - Class: 114
@@ -254,7 +260,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13630}
     - Class: 114
+      Script: {instanceID: 13656}
+    - Class: 114
       Script: {instanceID: 13738}
+    - Class: 114
+      Script: {instanceID: 14026}
     - Class: 114
       Script: {instanceID: 14138}
     - Class: 114
@@ -263,6 +273,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14704}
     - Class: 114
       Script: {instanceID: 14844}
+    - Class: 114
+      Script: {instanceID: 16050}
+    - Class: 114
+      Script: {instanceID: 16056}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1736,6 +1750,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeManagement
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Finish
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity
