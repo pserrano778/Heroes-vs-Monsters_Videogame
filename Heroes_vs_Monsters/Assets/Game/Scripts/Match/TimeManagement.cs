@@ -8,7 +8,7 @@ public class TimeManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 5;
+        timeLeft = 30;   
     }
 
     // Update is called once per frame

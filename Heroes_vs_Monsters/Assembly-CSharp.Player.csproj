@@ -700,6 +700,7 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Game\Scripts\Match\Finish.cs" />
+    <Compile Include="Assets\Game\Scripts\Match\ResourceManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />

@@ -9,6 +9,7 @@ public class SpawnUnit : MonoBehaviour
     public Camera camera;
     private UnitBehaviour prefab;
     private bool unitSelected;
+    public ResourceManagement resourceManager;
     private GameObject[] spawnPoints;
     public GameObject[] heroesSpawnPoints;
     public GameObject[] monstersSpawnPoints;
@@ -17,7 +18,7 @@ public class SpawnUnit : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         string typeOfPlayer = NetworkManager.GetTypeOfPlayer();
 
         // set spawn points and prefabs to player
@@ -33,6 +34,7 @@ public class SpawnUnit : MonoBehaviour
                 monstersPrefabs[i].SetActive(false);
                 //Destroy(monstersPrefabs[i]);
             }
+            resourceManager.SetResourcesPerTick(5);
         }
         else
         {
@@ -46,13 +48,9 @@ public class SpawnUnit : MonoBehaviour
                 heroesPrefabs[i].SetActive(false);
                 //Destroy(heroesPrefabs[i]);
             }
-        }
 
-        // free memory if player doesn't need the array
-        // Array.Clear(monstersPrefabs, 0, monstersPrefabs.Length - 1);
-        // Array.Clear(heroesPrefabs, 0, heroesPrefabs.Length - 1);
-        // Array.Clear(monstersSpawnPoints, 0, monstersSpawnPoints.Length - 1);
-        // Array.Clear(heroesSpawnPoints, 0, heroesSpawnPoints.Length - 1);
+            resourceManager.SetResourcesPerTick(10);
+        }
 
         ChangeVisibility(false);
         unitSelected = false;
@@ -69,8 +67,16 @@ public class SpawnUnit : MonoBehaviour
                 if (hit.collider.tag == "Prefab" && !unitSelected)
                 {
                     prefab = hit.collider.GetComponent<UnitBehaviour>();
-                    unitSelected = true;
-                    ChangeVisibility(true);
+
+                    if (HasEnoughResources(prefab.cost))
+                    {
+                        unitSelected = true;
+                        ChangeVisibility(true);
+                    }
+                    else
+                    {
+                        prefab = null;
+                    }
                 }
 
                 else if (hit.collider.tag == "Spawn" && unitSelected)
@@ -81,7 +87,8 @@ public class SpawnUnit : MonoBehaviour
                     PhotonView photonView = PhotonView.Get(this);
                     photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
                     //SpawnUnitAtPoint(prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
-
+                    resourceManager.DecreaseResources(prefab.cost);
+                    resourceManager.UpdateCounterText();
                     ChangeVisibility(false);
                     unitSelected = false;
                 }
@@ -136,5 +143,10 @@ public class SpawnUnit : MonoBehaviour
             }
         }
         return unit;
+    }
+
+    private bool HasEnoughResources(int cost)
+    {
+        return resourceManager.GetResources() >= cost;   
     }
 }
