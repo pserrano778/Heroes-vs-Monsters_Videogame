@@ -18,7 +18,7 @@ public class SpawnUnit : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         string typeOfPlayer = NetworkManager.GetTypeOfPlayer();
 
         // set spawn points and prefabs to player
@@ -32,9 +32,7 @@ public class SpawnUnit : MonoBehaviour
             for (int i = 0; i < monstersPrefabs.Length; i++)
             {
                 monstersPrefabs[i].SetActive(false);
-                //Destroy(monstersPrefabs[i]);
             }
-            resourceManager.SetResourcesPerTick(5);
         }
         else
         {
@@ -46,11 +44,11 @@ public class SpawnUnit : MonoBehaviour
             for (int i = 0; i < heroesPrefabs.Length; i++)
             {
                 heroesPrefabs[i].SetActive(false);
-                //Destroy(heroesPrefabs[i]);
             }
-
-            resourceManager.SetResourcesPerTick(10);
         }
+
+        Array.Clear(heroesPrefabs, 0, heroesPrefabs.Length - 1);
+        Array.Clear(monstersPrefabs, 0, monstersPrefabs.Length - 1);
 
         ChangeVisibility(false);
         unitSelected = false;
@@ -68,7 +66,7 @@ public class SpawnUnit : MonoBehaviour
                 {
                     prefab = hit.collider.GetComponent<UnitBehaviour>();
 
-                    if (HasEnoughResources(prefab.cost))
+                    if (HasEnoughResources(prefab.cost) && IsInRightPhase(prefab.phase))
                     {
                         unitSelected = true;
                         ChangeVisibility(true);
@@ -89,6 +87,7 @@ public class SpawnUnit : MonoBehaviour
                     //SpawnUnitAtPoint(prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
                     resourceManager.DecreaseResources(prefab.cost);
                     resourceManager.UpdateCounterText();
+                    resourceManager.UpdateUnitsColours();
                     ChangeVisibility(false);
                     unitSelected = false;
                 }
@@ -148,5 +147,10 @@ public class SpawnUnit : MonoBehaviour
     private bool HasEnoughResources(int cost)
     {
         return resourceManager.GetResources() >= cost;   
+    }
+
+    private bool IsInRightPhase(int phase)
+    {
+        return resourceManager.GetPhase() >= phase;
     }
 }

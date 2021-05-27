@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class TimeManagement : MonoBehaviour
 {
-    private float timeLeft; 
+    private float timeLeft;
+
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 30;   
+        timeLeft = 30;
     }
 
     // Update is called once per frame
     void Update()
     {
-        print("tiempoRestante:" +timeLeft);
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {

@@ -48,8 +48,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -134,45 +136,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12798}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 12956}
+      Script: {instanceID: 12958}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13062}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13452}
     - Class: 114
-      Script: {instanceID: 13564}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13578}
+      Script: {instanceID: 13580}
     - Class: 114
-      Script: {instanceID: 13634}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13662}
     - Class: 114
-      Script: {instanceID: 13680}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13914}
     - Class: 114
-      Script: {instanceID: 13944}
+      Script: {instanceID: 13946}
     - Class: 114
-      Script: {instanceID: 13954}
+      Script: {instanceID: 13956}
     - Class: 114
-      Script: {instanceID: 14030}
+      Script: {instanceID: 14032}
     - Class: 114
-      Script: {instanceID: 14142}
+      Script: {instanceID: 14144}
     - Class: 114
-      Script: {instanceID: 14396}
+      Script: {instanceID: 14398}
     - Class: 114
-      Script: {instanceID: 14458}
+      Script: {instanceID: 14460}
     - Class: 114
-      Script: {instanceID: 14708}
+      Script: {instanceID: 14710}
     - Class: 114
-      Script: {instanceID: 14848}
+      Script: {instanceID: 14850}
     - Class: 114
-      Script: {instanceID: 14886}
+      Script: {instanceID: 14888}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,27 +261,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12468}
     - Class: 114
-      Script: {instanceID: 12798}
+      Script: {instanceID: 12588}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 12800}
     - Class: 114
-      Script: {instanceID: 13634}
+      Script: {instanceID: 13062}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13636}
     - Class: 114
-      Script: {instanceID: 13742}
+      Script: {instanceID: 13662}
     - Class: 114
-      Script: {instanceID: 14030}
+      Script: {instanceID: 13744}
     - Class: 114
-      Script: {instanceID: 14142}
+      Script: {instanceID: 14032}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14144}
     - Class: 114
-      Script: {instanceID: 14708}
+      Script: {instanceID: 14150}
     - Class: 114
-      Script: {instanceID: 14848}
+      Script: {instanceID: 14710}
     - Class: 114
-      Script: {instanceID: 15884}
+      Script: {instanceID: 14850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -519,7 +521,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 9371b9f0863eb438ad549c67ec37b7e3
+      Hash: 6e4a639e7ca668a58e04c898504f3b62
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MonsterBehaviour
@@ -885,6 +887,12 @@ ScriptsOnlyBuild:
     className: PlayerControl
   - hash:
       serializedVersion: 2
+      Hash: 108a5e95267b13e598837262ec848db4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResourceManagement
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1209,7 +1217,7 @@ ScriptsOnlyBuild:
     className: LobbyMainPanel
   - hash:
       serializedVersion: 2
-      Hash: 622a63aae55b06cb2db352d46123a05f
+      Hash: ec082f969ea3e1ce0c2285c39745f4b1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitBehaviour
@@ -1765,14 +1773,8 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 090c0e774e46c536b4d38e1ed31a7237
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ResourceManagement
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity
   - Assets/Game/Scenes/Test.unity
-  playerPath: C:/Users/franm/Desktop/HvM dev Build/PLD.exe
+  playerPath: C:/Users/Usuario/Desktop/HvM/PLD.exe

@@ -10,6 +10,7 @@ public class UnitBehaviour : BasicBehaviour
     public float speed = 1.5f;
     public float attackRange = 1f;
     public int damage = 50;
+    public int phase;
 
     protected State state = State.Idle;
 

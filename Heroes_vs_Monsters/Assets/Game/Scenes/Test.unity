@@ -628,8 +628,6 @@ GameObject:
   - component: {fileID: 406541187}
   - component: {fileID: 406541186}
   - component: {fileID: 406541185}
-  - component: {fileID: 406541188}
-  - component: {fileID: 406541189}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -702,46 +700,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &406541188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406541184}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ebff3aaae2f4d14c907b595cecc2b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 406541186}
-  resourceManager: {fileID: 0}
-  heroesSpawnPoints: []
-  monstersSpawnPoints: []
-  heroesPrefabs: []
-  monstersPrefabs: []
---- !u!114 &406541189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406541184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 2
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &431672105
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,6 +3145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceCounterText: {fileID: 1671511106}
+  heroesPrefabs:
+  - {fileID: 757453588}
+  monstersPrefabs:
+  - {fileID: 1463394134034150}
+  unitsPrefabs: []
+  originalColours: []
 --- !u!4 &1821451737
 Transform:
   m_ObjectHideFlags: 0
@@ -3403,6 +3367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3550851514768253141, guid: 47e184886184fc2418c8b831222ad4d1,
         type: 3}
+      propertyPath: phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3550851514768253141, guid: 47e184886184fc2418c8b831222ad4d1,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -3557,6 +3526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4672051018514509989, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
+      propertyPath: phase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672051018514509989, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -3568,6 +3542,31 @@ PrefabInstance:
     - target: {fileID: 4720450067152138276, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766228606188481306, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766228606188481306, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766228606188481306, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766228606188481306, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766228606188481306, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_MaskInteraction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5885816666138425477, guid: a11bef3d0c4d708429cd7b97db20e2bb,
