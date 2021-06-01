@@ -48,10 +48,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -209,7 +207,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 225
       Script: {instanceID: 0}
-    Assets/Game/Scenes/Test.unity:
+    Assets/Game/Scenes/Match.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -242,8 +240,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 630}
-    - Class: 114
-      Script: {instanceID: 11284}
     - Class: 114
       Script: {instanceID: 11286}
     - Class: 114
@@ -1271,7 +1267,7 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 8764e4947a7b2acbc50bc7b933f6bea1
+      Hash: fa4642fc45b9113476d07aa1e7ce203a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpawnUnit
@@ -1421,7 +1417,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 7f212e072924ed8892f58c7745ecf6fb
+      Hash: ba1516db09eb00f9671fe1e02fa1bb8f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Spawner
@@ -1776,5 +1772,5 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity
-  - Assets/Game/Scenes/Test.unity
+  - Assets/Game/Scenes/Match.unity
   playerPath: C:/Users/Usuario/Desktop/HvM/PLD.exe

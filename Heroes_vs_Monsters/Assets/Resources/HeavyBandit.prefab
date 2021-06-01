@@ -172,10 +172,10 @@ MonoBehaviour:
   speed: 1.5
   attackRange: 1
   damage: 50
+  phase: 0
   anim: {fileID: 4720450067152138276}
   typeOfEnemy: Hero
-  nexusStone: {fileID: 7580910670510324172, guid: 0157e6da45f6cfd43a43ba4357ef9e1e,
-    type: 3}
+  nexusStone: {fileID: 0}
 --- !u!114 &5885816666138425477
 MonoBehaviour:
   m_ObjectHideFlags: 0

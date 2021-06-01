@@ -15,6 +15,7 @@ public class SpawnUnit : MonoBehaviour
     public GameObject[] monstersSpawnPoints;
     public GameObject[] heroesPrefabs;
     public GameObject[] monstersPrefabs;
+    public BasicBehaviour nexusStone;
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +82,9 @@ public class SpawnUnit : MonoBehaviour
                 {      
                     Spawner selectedSpawner = hit.collider.GetComponent<Spawner>();
 
-                    Vector2 spawnPoint = selectedSpawner.spawnPoint;
+                    Vector2 spawnPoint = selectedSpawner.getSpawnPoint();
                     PhotonView photonView = PhotonView.Get(this);
                     photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
-                    //SpawnUnitAtPoint(prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
                     resourceManager.DecreaseResources(prefab.cost);
                     resourceManager.UpdateCounterText();
                     resourceManager.UpdateUnitsColours();
@@ -115,14 +115,10 @@ public class SpawnUnit : MonoBehaviour
         UnitBehaviour newUnit = Instantiate(Resources.Load(nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
         newUnit.tag = tag;
         newUnit.GetComponent<UnitBehaviour>().setLane(lane);
-    }
-
-
-    public void SpawnUnitAtPoint(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
-    {
-        UnitBehaviour newUnit = PhotonNetwork.Instantiate(nombrePrefab, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
-        newUnit.tag = tag;  
-        newUnit.GetComponent<UnitBehaviour>().setLane(lane);
+        if(tag == "Monster")
+        {
+            newUnit.GetComponent<MonsterBehaviour>().nexusStone = nexusStone;
+        }
     }
 
     private UnitBehaviour FindUnit(string name)

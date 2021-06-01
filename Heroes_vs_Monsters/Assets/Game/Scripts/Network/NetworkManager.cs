@@ -102,7 +102,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         // If there is 2 players, load the game
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            LoadLevel("Test");
+            LoadLevel("Match");
         }
     }
 
@@ -116,7 +116,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
-            LoadLevel("Test");
+            LoadLevel("Match");
         }
     }
 

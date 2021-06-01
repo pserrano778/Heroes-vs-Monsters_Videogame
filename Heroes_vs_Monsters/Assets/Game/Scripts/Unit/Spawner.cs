@@ -5,19 +5,19 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public int lane;
-    public Vector2 spawnPoint;
+    private Vector2 spawnPoint;
     public string typeOfUnit;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPoint[0] = gameObject.transform.position.x;
+        spawnPoint[1] = gameObject.transform.position.y;
     }
 
-    // Update is called once per frame
-    void Update()
+    public Vector2 getSpawnPoint()
     {
-        
+        return spawnPoint;
     }
 }
