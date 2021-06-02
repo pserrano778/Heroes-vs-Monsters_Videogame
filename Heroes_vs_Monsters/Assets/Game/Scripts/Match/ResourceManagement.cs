@@ -45,13 +45,11 @@ public class ResourceManagement : MonoBehaviour
             resourcesPerTick = 10;
         }
 
-        Array.Clear(heroesPrefabs, 0, heroesPrefabs.Length - 1);
-        Array.Clear(monstersPrefabs, 0, monstersPrefabs.Length - 1);
-
         originalColours = new UnityEngine.Color[unitsPrefabs.Length];
         
         for (int i = 0; i < unitsPrefabs.Length; i++)
         {
+            print(unitsPrefabs[i]);
             originalColours[i] = unitsPrefabs[i].GetComponent<SpriteRenderer>().color;
             if (unitsPrefabs[i].GetComponent<UnitBehaviour>().phase > currentPhase)
             {

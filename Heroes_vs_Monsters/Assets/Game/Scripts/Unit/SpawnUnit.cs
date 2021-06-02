@@ -48,9 +48,6 @@ public class SpawnUnit : MonoBehaviour
             }
         }
 
-        Array.Clear(heroesPrefabs, 0, heroesPrefabs.Length - 1);
-        Array.Clear(monstersPrefabs, 0, monstersPrefabs.Length - 1);
-
         ChangeVisibility(false);
         unitSelected = false;
     }
@@ -111,7 +108,7 @@ public class SpawnUnit : MonoBehaviour
 
     [PunRPC]
     public void SpawnUnitAtPointRPC(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
-    {   
+    {
         UnitBehaviour newUnit = Instantiate(Resources.Load(nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
         newUnit.tag = tag;
         newUnit.GetComponent<UnitBehaviour>().setLane(lane);
