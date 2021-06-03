@@ -192,7 +192,8 @@ MonoBehaviour:
   cost: 0
   speed: 1.5
   attackRange: 1
-  damage: 50
+  damage: 100
   phase: 0
+  scale: 2.5
   anim: {fileID: 6036964468028338543}
   typeOfEnemy: Monster

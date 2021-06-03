@@ -11,6 +11,7 @@ public class UnitBehaviour : BasicBehaviour
     public float attackRange = 1f;
     public int damage = 50;
     public int phase;
+    public float scale = 1;
 
     protected State state = State.Idle;
 
@@ -39,11 +40,11 @@ public class UnitBehaviour : BasicBehaviour
 
         if (tag == "Hero")
         {
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+            transform.localScale = new Vector3(-scale, scale, 1.0f);
         }
         else
         {
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            transform.localScale = new Vector3(scale, scale, 1.0f);
         }
 
         if (lane != -1)
@@ -95,11 +96,11 @@ public class UnitBehaviour : BasicBehaviour
             // Swap direction of sprite depending on walk direction
             if (distanceToTarget < 0)
             {
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                transform.localScale = new Vector3(scale, scale, 1.0f);
             }
             else
             {
-                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                transform.localScale = new Vector3(-scale, scale, 1.0f);
             }
             if (distanceToTarget > attackRange)
             {
@@ -146,13 +147,16 @@ public class UnitBehaviour : BasicBehaviour
             }
             else
             {
+                print(gameObject.name + " " + getAnimDuration());
                 animDuration = getAnimDuration();
             }
             yield return new WaitForSeconds(animDuration);
 
             if (state == State.Attack)
             {
+                print(gameObject.name + " 1 " + target.getCurrentHealth());
                 target.takeDamage(damage);
+                print(gameObject.name + " 2 " + target.getCurrentHealth());
                 if (target.getCurrentHealth() <= 0)
                 {
                     target = null;

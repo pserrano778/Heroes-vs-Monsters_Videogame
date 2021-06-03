@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3550851514768253141}
   - component: {fileID: 1083628334929671303}
   m_Layer: 0
-  m_Name: LightBandit
+  m_Name: Campesino
   m_TagString: Prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
   attackRange: 0.9
   damage: 100
   phase: 1
+  scale: 1
   anim: {fileID: 3550851514768253145}
   typeOfEnemy: Monster
 --- !u!114 &1083628334929671303

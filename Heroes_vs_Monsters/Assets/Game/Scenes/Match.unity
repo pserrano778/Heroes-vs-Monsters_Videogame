@@ -1381,6 +1381,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201504893}
     m_Modifications:
+    - target: {fileID: -9112045039178134383, guid: d58955034eda6554183cdc6b617c0a14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -7850652146666300963, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
       propertyPath: sceneViewId
@@ -1490,6 +1495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Caballero
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036964468028338542, guid: d58955034eda6554183cdc6b617c0a14,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036964468028338542, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
@@ -3404,6 +3414,11 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3507003033511575040, guid: 47e184886184fc2418c8b831222ad4d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3550851514768253140, guid: 47e184886184fc2418c8b831222ad4d1,
         type: 3}
       propertyPath: m_Name
@@ -3513,6 +3528,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201504893}
     m_Modifications:
+    - target: {fileID: -3728544055634693506, guid: a11bef3d0c4d708429cd7b97db20e2bb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 753123049165950836, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
       propertyPath: m_Enabled

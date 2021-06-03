@@ -22,7 +22,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
     PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PhotonViewInspector
     - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
@@ -49,10 +48,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -516,7 +513,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 6e4a639e7ca668a58e04c898504f3b62
+      Hash: 48e4c87a866fe5822d6f5a655106957d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MonsterBehaviour
@@ -1212,7 +1209,7 @@ ScriptsOnlyBuild:
     className: LobbyMainPanel
   - hash:
       serializedVersion: 2
-      Hash: ec082f969ea3e1ce0c2285c39745f4b1
+      Hash: 8fd2db8b57dc4b2f598dc344a02e4f05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UnitBehaviour
@@ -1768,6 +1765,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: ddc69caaafb44bc3d543b18fd529fb22
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UnitScale
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity
