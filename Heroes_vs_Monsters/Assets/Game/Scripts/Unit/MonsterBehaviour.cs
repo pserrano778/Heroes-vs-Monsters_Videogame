@@ -27,8 +27,6 @@ public class MonsterBehaviour : UnitBehaviour
                 target = nexusStone;
             }
 
-            print("target " + target);
-
             state = State.Follow;
             yield return 0;
         }
@@ -50,7 +48,6 @@ public class MonsterBehaviour : UnitBehaviour
                 distance = enemies[i].transform.position.x;
             }
         }
-        print("targetting enemy " + target);
         return target;
     }
 }

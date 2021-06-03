@@ -147,16 +147,13 @@ public class UnitBehaviour : BasicBehaviour
             }
             else
             {
-                print(gameObject.name + " " + getAnimDuration());
                 animDuration = getAnimDuration();
             }
             yield return new WaitForSeconds(animDuration);
 
             if (state == State.Attack)
             {
-                print(gameObject.name + " 1 " + target.getCurrentHealth());
                 target.takeDamage(damage);
-                print(gameObject.name + " 2 " + target.getCurrentHealth());
                 if (target.getCurrentHealth() <= 0)
                 {
                     target = null;

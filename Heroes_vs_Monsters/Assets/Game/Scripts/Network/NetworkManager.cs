@@ -122,7 +122,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        print("dESCONEXIÓN");
         base.OnDisconnected(cause); 
     }
 
