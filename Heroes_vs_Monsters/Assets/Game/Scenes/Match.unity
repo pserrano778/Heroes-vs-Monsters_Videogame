@@ -1408,6 +1408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
+      propertyPath: scale
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -2156,10 +2161,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201504893}
     m_Modifications:
+    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
+        type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
+        type: 3}
+      propertyPath: scale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211580, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -2184,7 +2204,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -473
+      value: -540
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -2231,14 +2251,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caballero Oscuro
       objectReference: {fileID: 0}
+    - target: {fileID: 5437732507391211583, guid: 22014e577e6387041a3f24fb7cd49311,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7000440157224935353, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: sceneViewId
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311, type: 3}
-    - {fileID: 7000440157224935353, guid: 22014e577e6387041a3f24fb7cd49311, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22014e577e6387041a3f24fb7cd49311, type: 3}
 --- !u!4 &1327608621 stripped
 Transform:
@@ -2252,57 +2275,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1327608620}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1327608623 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5437732507391211583, guid: 22014e577e6387041a3f24fb7cd49311,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327608620}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1327608624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327608622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 5
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &1327608625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327608622}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72cd4d1a4c4e1c4882847686d05b46d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  defense: 0
-  cost: 10
-  speed: 1.5
-  attackRange: 1
-  damage: 100
-  phase: 2
-  scale: 1
-  anim: {fileID: 1327608623}
-  typeOfEnemy: Hero
-  nexusStone: {fileID: 1105107867}
 --- !u!1 &1452262207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,7 +3420,7 @@ MonoBehaviour:
   - {fileID: 890718934}
   monstersPrefabs:
   - {fileID: 1463394134034150}
-  - {fileID: 890718934}
+  - {fileID: 1327608622}
   unitsPrefabs: []
   originalColours: []
 --- !u!4 &1821451737
