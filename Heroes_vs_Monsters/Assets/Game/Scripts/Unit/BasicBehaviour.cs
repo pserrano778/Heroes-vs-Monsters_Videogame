@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class BasicBehaviour : MonoBehaviour
 {
-    public int health = 100;
-    protected int currentHealth = 100;
+    public int health = 1000;
+    protected int currentHealth = 1000;
     public int defense = 0;
+
+    private void Start()
+    {
+        currentHealth = health;
+    }
 
     public int getCurrentHealth()
     {

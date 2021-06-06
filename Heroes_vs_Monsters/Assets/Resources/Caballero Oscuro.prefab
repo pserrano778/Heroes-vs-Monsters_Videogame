@@ -197,5 +197,4 @@ MonoBehaviour:
   scale: 2.5
   anim: {fileID: 5437732507391211583}
   typeOfEnemy: Hero
-  nexusStone: {fileID: 7580910670510324172, guid: 0157e6da45f6cfd43a43ba4357ef9e1e,
-    type: 3}
+  nexusStone: {fileID: 0}
