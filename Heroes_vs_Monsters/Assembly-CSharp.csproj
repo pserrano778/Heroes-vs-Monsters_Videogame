@@ -73,6 +73,8 @@
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Spawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Ultimates\CaballeroOscuroUlti.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Ultimates\Ultimate.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitBehaviour.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\Demo\DestroyEvent_HeroKnight.cs" />

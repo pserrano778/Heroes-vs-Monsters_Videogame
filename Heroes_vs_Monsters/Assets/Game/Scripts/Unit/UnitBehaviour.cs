@@ -87,53 +87,63 @@ public class UnitBehaviour : BasicBehaviour
     {
         while (state == State.Follow)
         {
-            // -- Handle input and movement --
-            float targetPosition = target.transform.position.x;
-            float distanceToTarget = targetPosition - transform.position.x;
-
-            float waitTime = 0.1f;
-
-            // Swap direction of sprite depending on walk direction
-            if (distanceToTarget < 0)
+            if (target == null || target.getCurrentHealth() <= 0)
             {
-                transform.localScale = new Vector3(scale, scale, 1.0f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(-scale, scale, 1.0f);
-            }
-            if (distanceToTarget > attackRange)
-            {
-                
-                body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
-
-                anim.SetBool("Running", true);
-            } 
-            else if (distanceToTarget < -attackRange)
-            {
-                
-                // Move
-                body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
-
-                anim.SetBool("Running", true);
-            }
-            else
-            {
+                state = State.Idle;
+                anim.SetBool("Attack", false);
+                anim.SetBool("Running", false);
                 body2d.velocity = new Vector2(0, 0);
-
-                state = State.Attack;
-                anim.SetBool("Attack", true);
-                waitTime = 0;
             }
+            else
+            {
+                // -- Handle input and movement --
+                float targetPosition = target.transform.position.x;
+                float distanceToTarget = targetPosition - transform.position.x;
 
-            yield return new WaitForSeconds(waitTime);
-        }
+                float waitTime = 0.1f;
+
+                // Swap direction of sprite depending on walk direction
+                if (distanceToTarget < 0)
+                {
+                    transform.localScale = new Vector3(scale, scale, 1.0f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-scale, scale, 1.0f);
+                }
+                if (distanceToTarget > attackRange)
+                {
+
+                    body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
+
+                    anim.SetBool("Running", true);
+                }
+                else if (distanceToTarget < -attackRange)
+                {
+
+                    // Move
+                    body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
+
+                    anim.SetBool("Running", true);
+                }
+                else
+                {
+                    body2d.velocity = new Vector2(0, 0);
+
+                    state = State.Attack;
+                    anim.SetBool("Attack", true);
+
+                    waitTime = 0;
+                }
+
+                yield return new WaitForSeconds(waitTime);
+            }
+        }    
         GoToNextState();
     }
 
     protected IEnumerator AttackState()
     {
-        
         float animDuration = 200;
         while (state == State.Attack)
         {
@@ -170,7 +180,7 @@ public class UnitBehaviour : BasicBehaviour
         yield return 0;
     }
 
-    protected void GoToNextState()
+    public void GoToNextState()
     {
         StopAllCoroutines();
 
@@ -215,7 +225,7 @@ public class UnitBehaviour : BasicBehaviour
         return target;
     }
 
-    protected float getAnimDuration()
+    public float getAnimDuration()
     {
         return anim.GetCurrentAnimatorStateInfo(0).length * anim.GetCurrentAnimatorStateInfo(0).speed;
     }
