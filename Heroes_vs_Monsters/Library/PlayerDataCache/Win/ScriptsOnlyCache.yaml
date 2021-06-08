@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - BasicBehaviour
     - CaballeroOscuroUlti
     - Finish
+    - MageBehaviour
     - MonsterBehaviour
     - NetworkManager
     - NetworkPlayerSpawner
@@ -49,10 +50,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -131,53 +130,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 11954}
     - Class: 114
-      Script: {instanceID: 12528}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12582}
+      Script: {instanceID: 12530}
     - Class: 114
-      Script: {instanceID: 12800}
+      Script: {instanceID: 12584}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 12802}
     - Class: 114
-      Script: {instanceID: 13062}
+      Script: {instanceID: 12960}
     - Class: 114
-      Script: {instanceID: 13352}
+      Script: {instanceID: 13066}
     - Class: 114
-      Script: {instanceID: 13452}
+      Script: {instanceID: 13356}
     - Class: 114
-      Script: {instanceID: 13566}
+      Script: {instanceID: 13456}
     - Class: 114
-      Script: {instanceID: 13580}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13636}
+      Script: {instanceID: 13584}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 13666}
     - Class: 114
-      Script: {instanceID: 13914}
+      Script: {instanceID: 13686}
     - Class: 114
-      Script: {instanceID: 13946}
+      Script: {instanceID: 13918}
     - Class: 114
-      Script: {instanceID: 13956}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 13960}
     - Class: 114
-      Script: {instanceID: 14144}
+      Script: {instanceID: 14036}
     - Class: 114
-      Script: {instanceID: 14398}
+      Script: {instanceID: 14148}
     - Class: 114
-      Script: {instanceID: 14460}
+      Script: {instanceID: 14402}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14464}
     - Class: 114
-      Script: {instanceID: 14850}
+      Script: {instanceID: 14714}
     - Class: 114
-      Script: {instanceID: 14888}
+      Script: {instanceID: 14854}
     - Class: 114
-      Script: {instanceID: 40828}
+      Script: {instanceID: 14892}
+    - Class: 114
+      Script: {instanceID: 37978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -256,31 +257,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11710}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 11954}
     - Class: 114
-      Script: {instanceID: 12468}
+      Script: {instanceID: 12206}
     - Class: 114
-      Script: {instanceID: 12588}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12800}
+      Script: {instanceID: 12590}
     - Class: 114
-      Script: {instanceID: 13636}
+      Script: {instanceID: 12802}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 13640}
     - Class: 114
-      Script: {instanceID: 13744}
+      Script: {instanceID: 13666}
     - Class: 114
-      Script: {instanceID: 14032}
+      Script: {instanceID: 13748}
     - Class: 114
-      Script: {instanceID: 14144}
+      Script: {instanceID: 14036}
     - Class: 114
-      Script: {instanceID: 14150}
+      Script: {instanceID: 14148}
     - Class: 114
-      Script: {instanceID: 14710}
+      Script: {instanceID: 14154}
     - Class: 114
-      Script: {instanceID: 14850}
+      Script: {instanceID: 14714}
     - Class: 114
-      Script: {instanceID: 40828}
+      Script: {instanceID: 14854}
+    - Class: 114
+      Script: {instanceID: 37978}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -644,6 +647,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 7595cdef2526849ab6bc1ab0d65e8b8f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CaballeroOscuroUlti
   - hash:
       serializedVersion: 2
       Hash: 72f0e262cec16c9f4520dc3bf2b81796
@@ -1774,10 +1783,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 43fc7cd96b5f049d8b16e55274595975
+      Hash: 8fd2db8b57dc4b2f598dc344a02e4f05
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CaballeroOscuroUlti
+    className: MageBehaviour
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity

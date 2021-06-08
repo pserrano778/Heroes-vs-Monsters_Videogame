@@ -163,18 +163,14 @@ public class UnitBehaviour : BasicBehaviour
 
             if (state == State.Attack)
             {
-                target.takeDamage(damage);
-                if (target.getCurrentHealth() <= 0)
-                {
-                    target = null;
-                }
+                DamageEnemy();
             }
         }
         GoToNextState();
     }
 
     protected IEnumerator DieState()
-    {
+    { 
         Destroy(this.gameObject, getAnimDuration() + 2);
 
         yield return 0;
@@ -204,6 +200,7 @@ public class UnitBehaviour : BasicBehaviour
         {
             state = State.Die;
             this.tag = "Untagged";
+            body2d.velocity = new Vector2(0, 0);
             anim.SetBool("Dead", true);
         }
     }
@@ -238,5 +235,19 @@ public class UnitBehaviour : BasicBehaviour
     public void setLane(int lane)
     {
         this.lane = lane;
+    }
+
+    public State getState()
+    {
+        return state;
+    }
+
+    protected virtual void DamageEnemy()
+    {
+        target.takeDamage(damage);
+        if (target.getCurrentHealth() <= 0)
+        {
+            target = null;
+        }
     }
 }

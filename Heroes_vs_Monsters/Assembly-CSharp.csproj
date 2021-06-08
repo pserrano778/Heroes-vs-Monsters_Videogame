@@ -70,6 +70,7 @@
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\MageBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Spawner.cs" />

@@ -193,7 +193,7 @@ MonoBehaviour:
   cost: 0
   speed: 1.5
   attackRange: 1
-  damage: 100
+  damage: 10
   phase: 1
   scale: 2.5
   anim: {fileID: 5437732507391211583}
@@ -212,3 +212,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnergy: 50
+  ultimateDamage: 500
+  timeToRemoveDarkMark: 2
