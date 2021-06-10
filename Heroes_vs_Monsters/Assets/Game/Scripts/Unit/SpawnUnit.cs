@@ -56,13 +56,12 @@ public class SpawnUnit : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit)
+            Collider2D colliderHit = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition), LayerMask.GetMask("Spawn"));
+            if (colliderHit)
             {
-                if (hit.collider.tag == "Prefab" && !unitSelected)
+                if (colliderHit.tag == "Prefab" && !unitSelected)
                 {
-                    prefab = hit.collider.GetComponent<UnitBehaviour>();
+                    prefab = colliderHit.GetComponent<UnitBehaviour>();
 
                     if (HasEnoughResources(prefab.cost) && IsInRightPhase(prefab.phase))
                     {
@@ -75,9 +74,9 @@ public class SpawnUnit : MonoBehaviour
                     }
                 }
 
-                else if (hit.collider.tag == "Spawn" && unitSelected)
+                else if (colliderHit.tag == "Spawn" && unitSelected)
                 {      
-                    Spawner selectedSpawner = hit.collider.GetComponent<Spawner>();
+                    Spawner selectedSpawner = colliderHit.GetComponent<Spawner>();
 
                     Vector2 spawnPoint = selectedSpawner.getSpawnPoint();
                     PhotonView photonView = PhotonView.Get(this);

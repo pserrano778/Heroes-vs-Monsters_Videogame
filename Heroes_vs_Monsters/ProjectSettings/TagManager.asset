@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - Spawn
   - Prefab
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Spawn
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: SpawnUnit
+    uniqueID: 3184801507
     locked: 0
