@@ -11,6 +11,9 @@ public class BerserkerUlti : Ultimate
 
     private bool casting = false;
 
+    public int ultimateDamage;
+    public float ultimateLifestealPercentage;
+
     public BerserkerUlti()
     {
         energy = maxEnergy;
@@ -22,20 +25,13 @@ public class BerserkerUlti : Ultimate
         {
             if (CanCastUltimate())
             {
-                print("ULTI BERSERKER");
                 casting = true;
 
                 UnitBehaviour unit = GetComponent<UnitBehaviour>();
-                //unit.StopAllCoroutines();
-                //Animator anim = GetComponent<Animator>();
 
-                // bool attack = anim.GetBool("Attack");
-                // bool running = anim.GetBool("Attack");
-
-                // anim.SetBool("Attack", true);
-                // anim.SetBool("Running", false);
-
-                unit.defense = 100000;
+                int baseDamage = unit.damage;
+                unit.damage = ultimateDamage;
+                unit.lifestealPercentage = ultimateLifestealPercentage;
 
                 unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 0f, 0f, 1f);
 
@@ -44,7 +40,8 @@ public class BerserkerUlti : Ultimate
                 casting = false;
 
                 unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
-                unit.defense = 0;
+                unit.damage = baseDamage;
+                unit.lifestealPercentage = 0;
                 energy = 0;
 
 
@@ -54,8 +51,7 @@ public class BerserkerUlti : Ultimate
 
     protected override bool CanCastUltimate()
     {
-        UnitBehaviour unit = GetComponent<UnitBehaviour>();
-        return unit.health <= unit.health * 0.5;
+        return GetComponent<UnitBehaviour>().getCurrentHealth() <= GetComponent<UnitBehaviour>().health * 0.5;
     }
 
 }

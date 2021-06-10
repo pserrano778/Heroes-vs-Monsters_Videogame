@@ -12,6 +12,7 @@ public class UnitBehaviour : BasicBehaviour
     public int damage = 50;
     public int phase;
     public float scale = 1;
+    public float lifestealPercentage;
 
     protected State state = State.Idle;
 
@@ -248,6 +249,10 @@ public class UnitBehaviour : BasicBehaviour
         if (target.getCurrentHealth() <= 0)
         {
             target = null;
+        }
+        if (lifestealPercentage > 0f)
+        {
+            currentHealth += (int)(damage * lifestealPercentage);
         }
     }
 }
