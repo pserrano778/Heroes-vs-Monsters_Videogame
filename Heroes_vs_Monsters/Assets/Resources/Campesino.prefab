@@ -171,7 +171,7 @@ MonoBehaviour:
   attackRange: 0.9
   damage: 100
   phase: 1
-  scale: 1
+  scale: 0.8
   anim: {fileID: 3550851514768253145}
   typeOfEnemy: Monster
 --- !u!114 &1083628334929671303

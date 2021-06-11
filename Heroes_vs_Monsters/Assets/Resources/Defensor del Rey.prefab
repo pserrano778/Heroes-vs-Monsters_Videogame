@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2110177166117073124}
   - component: {fileID: 2294010358262187207}
   - component: {fileID: 2750128186519359639}
+  - component: {fileID: 3638316292184548062}
   - component: {fileID: 3607904528968501726}
   m_Layer: 0
   m_Name: Defensor del Rey
@@ -174,6 +175,21 @@ MonoBehaviour:
   scale: 1
   anim: {fileID: 5010609047425019254}
   typeOfEnemy: Monster
+--- !u!114 &3638316292184548062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931959558763317713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7c0ff7f2ce46441ab12dcec29ba11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 50
+  timeDuration: 2
+  ultimateDefense: 10000000
 --- !u!114 &3607904528968501726
 MonoBehaviour:
   m_ObjectHideFlags: 0

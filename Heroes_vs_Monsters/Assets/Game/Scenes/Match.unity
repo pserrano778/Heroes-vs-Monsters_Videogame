@@ -2507,7 +2507,7 @@ Transform:
   - {fileID: 135112986}
   - {fileID: 1235199025}
   m_Father: {fileID: 1201504893}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1106022785 stripped
 Transform:
@@ -2618,6 +2618,7 @@ RectTransform:
   - {fileID: 1463394134034159}
   - {fileID: 1327608621}
   - {fileID: 1218948980}
+  - {fileID: 1256627794}
   - {fileID: 1106022784}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2634,6 +2635,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1201504893}
     m_Modifications:
+    - target: {fileID: 4721408614743869206, guid: adcbe9e1ffe1e37428675c0f65041b84,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4876833474532122813, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_Enabled
@@ -2846,6 +2852,127 @@ Transform:
   m_Father: {fileID: 1106022784}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1256627793
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1201504893}
+    m_Modifications:
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 216
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 657.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -511.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9720
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671155678197652732, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_Name
+      value: Ojo flotante
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671155678197652732, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672051018514509989, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: cost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4672051018514509989, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720450067152138276, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5885816666138425477, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21c8667ec87f52c4ab26f4730f9aa66b, type: 3}
+--- !u!4 &1256627794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256627793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1256627795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4671155678197652732, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256627793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1327608620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3686,6 +3813,7 @@ MonoBehaviour:
   - {fileID: 1463394134034150}
   - {fileID: 1327608622}
   - {fileID: 1218948981}
+  - {fileID: 1256627795}
   nexusStone: {fileID: 1105107867}
 --- !u!1 &1671511104
 GameObject:
@@ -4162,6 +4290,7 @@ MonoBehaviour:
   - {fileID: 1463394134034150}
   - {fileID: 1327608622}
   - {fileID: 1218948981}
+  - {fileID: 1256627795}
   unitsPrefabs:
   - {fileID: 1218948981}
   originalColours: []
