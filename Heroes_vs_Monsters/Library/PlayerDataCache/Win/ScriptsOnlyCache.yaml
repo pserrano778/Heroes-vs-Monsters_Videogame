@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - SpawnUnit
     - Spawner
     - TimeManagement
+    - UltimateBar
     - UnitBehaviour
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
@@ -29,9 +30,6 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
     PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PhotonAnimatorViewEditor
-    - Photon.Pun.PhotonTransformViewEditor
-    - Photon.Pun.PhotonViewInspector
     - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
@@ -197,6 +195,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14866}
     - Class: 114
       Script: {instanceID: 14904}
+    - Class: 114
+      Script: {instanceID: 21198}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -316,6 +316,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14726}
     - Class: 114
       Script: {instanceID: 14866}
+    - Class: 114
+      Script: {instanceID: 21198}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1849,6 +1851,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 56b299249294e6b02cabf78f71ed4347
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UltimateBar
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity

@@ -2,48 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using Photon.Pun;
 
 public class BerserkerUlti : Ultimate
 {
     public float timeDuration;
 
-    private static readonly object castingUltimate = new object();
-
     public int ultimateDamage;
     public float ultimateLifestealPercentage;
 
-    public BerserkerUlti()
+    void Start()
     {
         energy = maxEnergy;
     }
 
     protected override IEnumerator castUltimate()
     {
-        lock (castingUltimate)
-        {
-            if (CanCastUltimate())
-            {
-                // get berkserker unit
-                BerserkerBehaviour unit = GetComponent<BerserkerBehaviour>();
+        int baseDamage = GetComponent<BerserkerBehaviour>().damage;
 
-                // update (increase) unit damage and lifesteal
-                int baseDamage = unit.damage;
-                unit.damage = ultimateDamage;
-                unit.lifestealPercentage = ultimateLifestealPercentage;
+        GetComponent<PhotonView>().RPC("ApplyUltimate", RpcTarget.All);
 
-                // change colour to show that the unit is using its ultimate
-                unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 0f, 0f, 1f);
+        // wait until ultimate wears off
+        yield return new WaitForSeconds(timeDuration);
 
-                // wait until ultimate wears off
-                yield return new WaitForSeconds(timeDuration);
+        GetComponent<PhotonView>().RPC("RemoveUltimate", RpcTarget.All, baseDamage);
 
-                // change colour, damage and lifesteal to base values
-                unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
-                unit.damage = baseDamage;
-                unit.lifestealPercentage = 0;
-                energy = 0;
-            }
-        }
+    }
+
+    [PunRPC]
+    private void ApplyUltimate()
+    {
+        // get berkserker unit
+        BerserkerBehaviour unit = GetComponent<BerserkerBehaviour>();
+
+        // update (increase) unit damage and lifesteal
+        
+        unit.damage = ultimateDamage;
+        unit.lifestealPercentage = ultimateLifestealPercentage;
+
+        // change colour to show that the unit is using its ultimate
+        unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 0f, 0f, 1f);
+    }
+
+    [PunRPC]
+    private void RemoveUltimate(int baseDamage)
+    {
+        // get berkserker unit
+        BerserkerBehaviour unit = GetComponent<BerserkerBehaviour>();
+
+        // change colour, damage and lifesteal to base values
+        unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
+        unit.damage = baseDamage;
+        unit.lifestealPercentage = 0;
+        energy = 0;
     }
 
     protected override bool CanCastUltimate()

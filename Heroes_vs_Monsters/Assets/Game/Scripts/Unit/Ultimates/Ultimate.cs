@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public abstract class Ultimate : MonoBehaviour
 {
     public int maxEnergy;
@@ -23,17 +23,20 @@ public abstract class Ultimate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TryCastUltimate();
+        if (GetComponent<PhotonView>().IsMine) {
+            TryCastUltimate();
 
-        if (GetComponent<UnitBehaviour>().getState() != UnitBehaviour.State.Die)
-        {
-            timeToTick += Time.deltaTime;
-            if (timeToTick >= TICK_RATE)
+            if (GetComponent<UnitBehaviour>().getState() != UnitBehaviour.State.Die)
             {
-                timeToTick -= TICK_RATE;
-                UpdateEnergy();
+                timeToTick += Time.deltaTime;
+                if (timeToTick >= TICK_RATE)
+                {
+                    timeToTick -= TICK_RATE;
+                    GetComponent<PhotonView>().RPC("UpdateEnergy", RpcTarget.All);
+                }
             }
         }
+        
     }
 
     protected virtual void TryCastUltimate()
@@ -42,12 +45,25 @@ public abstract class Ultimate : MonoBehaviour
         {
             if (CanCastUltimate())
             {
-                energy = 0;
+                GetComponent<PhotonView>().RPC("ResetEnergy", RpcTarget.All);
                 StartCoroutine(castUltimate());
             }
         }
     }
 
+    protected virtual bool CanCastUltimate()
+    {
+        return true;
+    }
+
+    protected abstract IEnumerator castUltimate();
+
+    public int getEnergy()
+    {
+        return energy;
+    }
+
+    [PunRPC]
     protected virtual void UpdateEnergy()
     {
         if (energy < maxEnergy)
@@ -60,10 +76,9 @@ public abstract class Ultimate : MonoBehaviour
         }
     }
 
-    protected virtual bool CanCastUltimate()
+    [PunRPC]
+    protected virtual void ResetEnergy()
     {
-        return true;
+        energy = 0;
     }
-
-    protected abstract IEnumerator castUltimate();
 }

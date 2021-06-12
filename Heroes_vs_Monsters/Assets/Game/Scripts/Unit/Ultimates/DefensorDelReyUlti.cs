@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using Photon.Pun;
 
 public class DefensorDelReyUlti : Ultimate
 {
@@ -12,35 +13,38 @@ public class DefensorDelReyUlti : Ultimate
 
     protected override IEnumerator castUltimate()
     {
-        lock (castingUltimate)
-        {
-            if (CanCastUltimate())
-            {
-                // get unit
-                UnitBehaviour unit = GetComponent<UnitBehaviour>();
+        int baseDefense = GetComponent<UnitBehaviour>().defense;
 
-                // update (increase) unit defense
-                int baseDefense = unit.defense;
-                unit.defense = ultimateDefense;
-              
-                // change colour to show that the unit is using its ultimate
-                unit.GetComponent<SpriteRenderer>().color =  new UnityEngine.Color(1, 0.92f, 0.016f, 1);
-                energy = 0;
+        GetComponent<PhotonView>().RPC("ApplyUltimate", RpcTarget.All);
 
-                // wait until ultimate wears off
-                yield return new WaitForSeconds(timeDuration);
+        // wait until ultimate wears off
+        yield return new WaitForSeconds(timeDuration);
 
-                // change back colour and defense to base values
-                unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
-                unit.defense = baseDefense;
-            }
-        }
+        GetComponent<PhotonView>().RPC("RemoveUltimate", RpcTarget.All, baseDefense);
     }
 
-    protected override bool CanCastUltimate()
+    [PunRPC]
+    private void ApplyUltimate()
     {
-        // the ulti can only be casted when the unit has low health
-        return GetComponent<UnitBehaviour>().getCurrentHealth() <= GetComponent<UnitBehaviour>().health * 0.5;
+        // get unit
+        UnitBehaviour unit = GetComponent<UnitBehaviour>();
+
+        // update (increase) unit defense
+
+        unit.defense = ultimateDefense;
+
+        // change colour to show that the unit is using its ultimate
+        unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1, 0.92f, 0.016f, 1);
     }
 
+    [PunRPC]
+    private void RemoveUltimate(int baseDefense)
+    {
+        // get unit
+
+        UnitBehaviour unit = GetComponent<UnitBehaviour>();
+        // change back colour and defense to base values
+        unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
+        unit.defense = baseDefense;
+    }
 }

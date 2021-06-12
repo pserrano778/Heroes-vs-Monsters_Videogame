@@ -172,7 +172,9 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
     }
 
     protected IEnumerator DieState()
-    { 
+    {
+        yield return new WaitForSeconds(2.1f);
+
         if(GetComponent<PhotonView>().IsMine)
             PhotonNetwork.Destroy(this.gameObject);
 
@@ -210,11 +212,20 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
 
         if (currentHealth <= 0)
         {
-            state = State.Die;
-            this.tag = "Untagged";
-            body2d.velocity = new Vector2(0, 0);
-            anim.SetBool("Dead", true);
+            if (GetComponent<PhotonView>().IsMine)
+            {
+                state = State.Die;
+                anim.SetBool("Dead", true);
+                GetComponent<PhotonView>().RPC("UnitDead", RpcTarget.All);
+            }
         }
+    }
+
+    [PunRPC]
+    public void UnitDead()
+    {
+        this.tag = "Untagged";
+        body2d.velocity = new Vector2(0, 0);
     }
 
     public virtual int TargetEnemy(GameObject[] enemies)

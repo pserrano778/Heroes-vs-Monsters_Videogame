@@ -69,9 +69,10 @@
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Bars\HealthBar.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Bars\UltimateBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BerserkerBehaviour.cs" />
-    <Compile Include="Assets\Game\Scripts\Unit\HealthBar\HealthBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MageBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SamuraiBehaviour.cs" />

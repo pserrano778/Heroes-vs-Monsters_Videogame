@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
-
+using Photon.Pun;
 public class CaballeroOscuroUlti : Ultimate
 {
     public int ultimateDamage;
@@ -30,24 +30,26 @@ public class CaballeroOscuroUlti : Ultimate
                 anim.SetBool("Attack", true);
                 anim.SetBool("Running", false);
 
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag(unit.typeOfEnemy);
-                applyDarkMarkToEnemies(enemies);
-                energy = 0;
+                GetComponent<PhotonView>().RPC("applyDarkMarkToEnemies", RpcTarget.All, unit.typeOfEnemy);
+                GetComponent<PhotonView>().RPC("ResetEnergy", RpcTarget.All);
 
                 yield return new WaitForSeconds(unit.getAnimDuration());
 
                 unit.GoToNextState();
 
                 yield return new WaitForSeconds(timeToRemoveDarkMark);
-                removeDarkMarkFromEnemies(enemies);
+
+                GetComponent<PhotonView>().RPC("removeDarkMarkFromEnemies", RpcTarget.All, unit.typeOfEnemy);
 
                 casting = false;
             }
         }
     }
 
-    private void applyDarkMarkToEnemies(GameObject[] enemies)
+    [PunRPC]
+    private void applyDarkMarkToEnemies(string typeOfEnemy)
     {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i] != null && enemies[i].GetComponent<UnitBehaviour>().getCurrentHealth() > 0)
@@ -57,9 +59,10 @@ public class CaballeroOscuroUlti : Ultimate
         }
     }
 
-    private void removeDarkMarkFromEnemies(GameObject[] enemies)
+    [PunRPC]
+    private void removeDarkMarkFromEnemies(string typeOfEnemy)
     {
-
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i] != null && enemies[i].GetComponent<UnitBehaviour>().getCurrentHealth() > 0 && 
