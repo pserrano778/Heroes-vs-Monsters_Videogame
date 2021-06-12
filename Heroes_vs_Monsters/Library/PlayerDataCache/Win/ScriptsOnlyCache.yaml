@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - CaballeroOscuroUlti
     - DefensorDelReyUlti
     - Finish
+    - HealthBar
     - MageBehaviour
     - MonsterBehaviour
     - NetworkManager
@@ -114,83 +115,85 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11284}
+      Script: {instanceID: 12074}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 12310}
     - Class: 114
-      Script: {instanceID: 11288}
+      Script: {instanceID: 12350}
     - Class: 114
-      Script: {instanceID: 11290}
+      Script: {instanceID: 12406}
     - Class: 114
-      Script: {instanceID: 11318}
+      Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 12610}
     - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 11854}
+      Script: {instanceID: 13092}
     - Class: 114
-      Script: {instanceID: 11882}
+      Script: {instanceID: 13118}
     - Class: 114
-      Script: {instanceID: 11956}
+      Script: {instanceID: 13232}
     - Class: 114
-      Script: {instanceID: 12472}
+      Script: {instanceID: 13292}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 13346}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 13564}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 13722}
     - Class: 114
-      Script: {instanceID: 12962}
+      Script: {instanceID: 13828}
     - Class: 114
-      Script: {instanceID: 13068}
+      Script: {instanceID: 13864}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13878}
     - Class: 114
-      Script: {instanceID: 13228}
-    - Class: 114
-      Script: {instanceID: 13362}
-    - Class: 114
-      Script: {instanceID: 13462}
-    - Class: 114
-      Script: {instanceID: 13576}
-    - Class: 114
-      Script: {instanceID: 13590}
-    - Class: 114
-      Script: {instanceID: 13646}
-    - Class: 114
-      Script: {instanceID: 13672}
-    - Class: 114
-      Script: {instanceID: 13692}
-    - Class: 114
-      Script: {instanceID: 13924}
-    - Class: 114
-      Script: {instanceID: 13956}
-    - Class: 114
-      Script: {instanceID: 13966}
+      Script: {instanceID: 13990}
     - Class: 114
       Script: {instanceID: 14042}
     - Class: 114
-      Script: {instanceID: 14154}
+      Script: {instanceID: 14126}
     - Class: 114
-      Script: {instanceID: 14408}
+      Script: {instanceID: 14226}
     - Class: 114
-      Script: {instanceID: 14470}
+      Script: {instanceID: 14340}
+    - Class: 114
+      Script: {instanceID: 14354}
+    - Class: 114
+      Script: {instanceID: 14410}
+    - Class: 114
+      Script: {instanceID: 14436}
+    - Class: 114
+      Script: {instanceID: 14456}
+    - Class: 114
+      Script: {instanceID: 14688}
     - Class: 114
       Script: {instanceID: 14720}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14730}
     - Class: 114
-      Script: {instanceID: 14900}
+      Script: {instanceID: 14806}
     - Class: 114
-      Script: {instanceID: 16342}
+      Script: {instanceID: 14918}
     - Class: 114
-      Script: {instanceID: 29028}
+      Script: {instanceID: 15172}
+    - Class: 114
+      Script: {instanceID: 15234}
+    - Class: 114
+      Script: {instanceID: 15484}
+    - Class: 114
+      Script: {instanceID: 15626}
+    - Class: 114
+      Script: {instanceID: 15664}
+    - Class: 114
+      Script: {instanceID: 15676}
+    - Class: 114
+      Script: {instanceID: 46618}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,51 +262,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 630}
     - Class: 114
-      Script: {instanceID: 11286}
+      Script: {instanceID: 12074}
     - Class: 114
-      Script: {instanceID: 11318}
+      Script: {instanceID: 12362}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 12454}
     - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 12466}
     - Class: 114
-      Script: {instanceID: 11710}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 11882}
+      Script: {instanceID: 12712}
     - Class: 114
-      Script: {instanceID: 11956}
+      Script: {instanceID: 12964}
     - Class: 114
-      Script: {instanceID: 12208}
+      Script: {instanceID: 13118}
     - Class: 114
-      Script: {instanceID: 12472}
+      Script: {instanceID: 13232}
     - Class: 114
-      Script: {instanceID: 12592}
+      Script: {instanceID: 13352}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 13564}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 13864}
     - Class: 114
-      Script: {instanceID: 13228}
+      Script: {instanceID: 13878}
     - Class: 114
-      Script: {instanceID: 13646}
-    - Class: 114
-      Script: {instanceID: 13672}
-    - Class: 114
-      Script: {instanceID: 13754}
+      Script: {instanceID: 13990}
     - Class: 114
       Script: {instanceID: 14042}
     - Class: 114
-      Script: {instanceID: 14154}
+      Script: {instanceID: 14410}
     - Class: 114
-      Script: {instanceID: 14160}
+      Script: {instanceID: 14436}
     - Class: 114
-      Script: {instanceID: 14720}
+      Script: {instanceID: 14518}
     - Class: 114
-      Script: {instanceID: 14862}
+      Script: {instanceID: 14806}
     - Class: 114
-      Script: {instanceID: 16342}
+      Script: {instanceID: 14918}
     - Class: 114
-      Script: {instanceID: 29028}
+      Script: {instanceID: 14924}
+    - Class: 114
+      Script: {instanceID: 15484}
+    - Class: 114
+      Script: {instanceID: 15626}
+    - Class: 114
+      Script: {instanceID: 46618}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -331,30 +336,6 @@ ScriptsOnlyBuild:
     - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
-  - hash:
-      serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
-  - hash:
-      serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
-      Hash: caa533b001ae39b864ba8425019e2268
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Shadow
-  - hash:
-      serializedVersion: 2
-      Hash: 7072231382eb3c4871b3dd75ad0227e1
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Slider
   - hash:
       serializedVersion: 2
       Hash: 80d2851602cb4bcb6f559596c5eb955b
@@ -523,6 +504,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: CullingHandler
+  - hash:
+      serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
   - hash:
       serializedVersion: 2
       Hash: 499fd23433e68e265d153aa6b95d0047
@@ -807,10 +794,22 @@ ScriptsOnlyBuild:
     className: PhotonRigidbody2DView
   - hash:
       serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Shadow
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: OnStartDelete
+  - hash:
+      serializedVersion: 2
+      Hash: 4d82d9002aa64f2b8dfcf8f39be77b3c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BerserkerBehaviour
   - hash:
       serializedVersion: 2
       Hash: 5ae36aa27e46b25633847fc7cb6b5c87
@@ -1077,6 +1076,12 @@ ScriptsOnlyBuild:
     className: MageBehaviour
   - hash:
       serializedVersion: 2
+      Hash: 502dad73b04031a43dd30f26c909296a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DefensorDelReyUlti
+  - hash:
+      serializedVersion: 2
       Hash: d329540117e6b6c523bded68046af505
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1135,6 +1140,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: f84d945e5e1ca985698660fc26e9657f
@@ -1690,12 +1701,6 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: resetAttacks
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: UnityStandardAssets.Characters.ThirdPerson.PunDemos
     className: ThirdPersonUserControl
@@ -1785,6 +1790,12 @@ ScriptsOnlyBuild:
     className: ConnectToRegionUIForm
   - hash:
       serializedVersion: 2
+      Hash: 7072231382eb3c4871b3dd75ad0227e1
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
+  - hash:
+      serializedVersion: 2
       Hash: 5f4d6e57084c42d31cf00600fe2c939d
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1827,18 +1838,12 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 4d82d9002aa64f2b8dfcf8f39be77b3c
+      Hash: 7a5abe7e97f76acbe789ed7fc463faf9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: BerserkerBehaviour
-  - hash:
-      serializedVersion: 2
-      Hash: 502dad73b04031a43dd30f26c909296a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DefensorDelReyUlti
+    className: HealthBar
   platform: 5
   scenePathNames:
   - Assets/Game/Scenes/Lobby.unity
   - Assets/Game/Scenes/Match.unity
-  playerPath: C:/Users/franm/Desktop/HvM dev Build/PLD.exe
+  playerPath: C:/Users/Usuario/Desktop/HvM/PLD.exe
