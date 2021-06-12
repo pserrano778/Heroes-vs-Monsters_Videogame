@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class BerserkerBehaviour : MonsterBehaviour
 {
@@ -14,7 +15,13 @@ public class BerserkerBehaviour : MonsterBehaviour
         }
         if (lifestealPercentage > 0f)
         {
-            currentHealth += (int)(damage * lifestealPercentage);
+            GetComponent<PhotonView>().RPC("HealUnit", RpcTarget.All, damage, lifestealPercentage);
         }
+    }
+
+    [PunRPC]
+    private void HealUnit(int damage, float lifestealPercentage)
+    {
+        currentHealth += (int)(damage * lifestealPercentage);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class BasicBehaviour : MonoBehaviour
 {
@@ -19,6 +20,12 @@ public class BasicBehaviour : MonoBehaviour
     }
 
     public virtual void takeDamage(int damage)
+    {
+        GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damage);
+    }
+
+    [PunRPC]
+    public virtual void takeDamageRPC(int damage)
     {
         int damageTaken = 1;
         if (damage - defense > 0)

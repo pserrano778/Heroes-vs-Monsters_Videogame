@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
+using Photon.Pun;
 
-public class UnitBehaviour : BasicBehaviour
+public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
 {
     protected int lane = -1;
     public int cost;
@@ -26,6 +27,7 @@ public class UnitBehaviour : BasicBehaviour
         Follow,
         Die,
         Attack,
+        Null,
     }
 
     public string typeOfEnemy = "";
@@ -171,7 +173,8 @@ public class UnitBehaviour : BasicBehaviour
 
     protected IEnumerator DieState()
     { 
-        Destroy(this.gameObject, getAnimDuration() + 2);
+        if(GetComponent<PhotonView>().IsMine)
+            PhotonNetwork.Destroy(this.gameObject);
 
         yield return 0;
     }
@@ -179,15 +182,24 @@ public class UnitBehaviour : BasicBehaviour
     public void GoToNextState()
     {
         StopAllCoroutines();
+        if (state != State.Null)
+        {
+            string methodName = state.ToString() + "State";
+            System.Reflection.MethodInfo info = GetType().GetMethod(methodName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
 
-        string methodName = state.ToString() + "State";
-        System.Reflection.MethodInfo info = GetType().GetMethod(methodName, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-        StartCoroutine((IEnumerator)info.Invoke(this, null));
+            StartCoroutine((IEnumerator)info.Invoke(this, null));
+        }
     }
 
 
     public override void takeDamage(int damage)
+    {
+        if (!GetComponent<PhotonView>().IsMine)
+            GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damage);
+    }
+
+    [PunRPC]
+    public override void takeDamageRPC(int damage)
     {
         int damageTaken = 1;
         if (damage - defense > 0)
@@ -242,12 +254,39 @@ public class UnitBehaviour : BasicBehaviour
         return state;
     }
 
+    [PunRPC]
     protected virtual void DamageEnemy()
     {
         target.takeDamage(damage);
         if (target.getCurrentHealth() <= 0)
         {
             target = null;
+        }
+    }
+
+    public void newInformation(int lane, string tag)
+    {
+        GetComponent<PhotonView>().RPC("setInformation", RpcTarget.All, lane, tag);
+    }
+
+    [PunRPC]
+    public void setInformation(int lane, string tag)
+    {
+        this.lane = lane;
+        this.tag = tag;
+
+        if (GetComponent<MonsterBehaviour>() != null)
+        {
+            GetComponent<MonsterBehaviour>().nexusStone = GameObject.FindGameObjectsWithTag("Nexus")[0].GetComponent<BasicBehaviour>();
+        }
+    }
+
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        if (!GetComponent<PhotonView>().IsMine)
+        {
+            state = State.Null;
+            StopAllCoroutines();
         }
     }
 }

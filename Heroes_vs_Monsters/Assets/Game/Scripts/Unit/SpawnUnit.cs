@@ -80,7 +80,9 @@ public class SpawnUnit : MonoBehaviour
 
                     Vector2 spawnPoint = selectedSpawner.getSpawnPoint();
                     PhotonView photonView = PhotonView.Get(this);
-                    photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
+                    GameObject newUnit = PhotonNetwork.Instantiate(prefab.name, spawnPoint, Quaternion.identity, 0);
+                    newUnit.GetComponent<UnitBehaviour>().newInformation(selectedSpawner.lane, selectedSpawner.typeOfUnit);
+                    //photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
                     resourceManager.DecreaseResources(prefab.cost);
                     resourceManager.UpdateCounterText();
                     resourceManager.UpdateUnitsColours();
