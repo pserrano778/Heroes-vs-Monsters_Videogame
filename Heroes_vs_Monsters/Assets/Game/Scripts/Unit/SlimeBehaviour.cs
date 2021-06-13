@@ -33,18 +33,9 @@ public class SlimeBehaviour : MonsterBehaviour
             }
         }
 
-        if (target == nexusStone && target.getCurrentHealth() > 0)
+        if (target == nexusStone)
         {
-            if ((target.transform.position.x - transform.position.x >= -attackRange)
-                || (target.transform.position.x - transform.position.x <= attackRange))
-            {
-                target.takeDamage(damage);
-
-                if (target.getCurrentHealth() <= 0)
-                {
-                    target = null;
-                }
-            }
+            target.takeDamage(damage);
         }
 
         if (target.getCurrentHealth() <= 0)

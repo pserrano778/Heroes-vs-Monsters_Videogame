@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public int lane;
-    private Vector2 spawnPoint;
+    private Vector3 spawnPoint;
     public string typeOfUnit;
 
 
@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     {
         spawnPoint[0] = gameObject.transform.position.x;
         spawnPoint[1] = gameObject.transform.position.y;
+        spawnPoint[2] = 0;
     }
 
     public Vector2 getSpawnPoint()

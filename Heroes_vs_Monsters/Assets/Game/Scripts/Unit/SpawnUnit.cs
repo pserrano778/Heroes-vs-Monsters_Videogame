@@ -17,6 +17,7 @@ public class SpawnUnit : MonoBehaviour
     public GameObject[] monstersPrefabs;
     public BasicBehaviour nexusStone;
 
+    private int unitCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,9 +79,11 @@ public class SpawnUnit : MonoBehaviour
                 {      
                     Spawner selectedSpawner = colliderHit.GetComponent<Spawner>();
 
-                    Vector2 spawnPoint = selectedSpawner.getSpawnPoint();
+                    Vector3 spawnPoint = selectedSpawner.getSpawnPoint();
+                    spawnPoint[2] += unitCounter;
+                    unitCounter++;
                     PhotonView photonView = PhotonView.Get(this);
-                    GameObject newUnit = PhotonNetwork.Instantiate(prefab.name, spawnPoint, Quaternion.identity, 0);
+                    GameObject newUnit = PhotonNetwork.Instantiate("Units/" + NetworkManager.GetTypeOfPlayer() + "/" + prefab.name, spawnPoint, Quaternion.identity, 0);
                     newUnit.GetComponent<UnitBehaviour>().newInformation(selectedSpawner.lane, selectedSpawner.typeOfUnit);
                     //photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
                     resourceManager.DecreaseResources(prefab.cost);
@@ -108,9 +111,9 @@ public class SpawnUnit : MonoBehaviour
     }
 
     [PunRPC]
-    public void SpawnUnitAtPointRPC(string nombrePrefab, Vector2 spawnPoint, string tag, int lane)
+    public void SpawnUnitAtPointRPC(string nombrePrefab, Vector3 spawnPoint, string tag, int lane)
     {
-        UnitBehaviour newUnit = Instantiate(Resources.Load(nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
+        UnitBehaviour newUnit = Instantiate(Resources.Load("Units/" + NetworkManager.GetTypeOfPlayer() + "/" + nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
         newUnit.tag = tag;
         newUnit.GetComponent<UnitBehaviour>().setLane(lane);
         if(tag == "Monster")
