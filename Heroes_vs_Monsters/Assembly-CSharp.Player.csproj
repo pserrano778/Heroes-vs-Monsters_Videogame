@@ -704,11 +704,14 @@
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Bars\HealthBar.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Bars\UltimateBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BerserkerBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MageBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SamuraiBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\SlimeBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Spawner.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\BerserkerUlti.cs" />
@@ -734,7 +737,6 @@
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
-    <Compile Include="Assets\resetAttacks.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Hero and Opponents\license.txt" />
