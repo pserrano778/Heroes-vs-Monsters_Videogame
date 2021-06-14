@@ -710,6 +710,7 @@
     <Compile Include="Assets\Game\Scripts\Unit\BerserkerBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MageBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\MushroomBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SamuraiBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SlimeBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
@@ -717,6 +718,7 @@
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\BerserkerUlti.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\CaballeroOscuroUlti.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\DefensorDelReyUlti.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\Ultimates\ReyUlti.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\Ultimate.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitBehaviour.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\ColorSwap\ColorSwap_HeroKnight.cs" />

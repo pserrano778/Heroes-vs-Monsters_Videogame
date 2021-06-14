@@ -5214,6 +5214,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 855170543270125082, guid: c88f7811fcf1e124bbdcae53b8f0da97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1821485411223313415, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
       propertyPath: m_IsActive
@@ -5292,6 +5297,11 @@ PrefabInstance:
     - target: {fileID: 3035557525719320997, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938923314704701170, guid: c88f7811fcf1e124bbdcae53b8f0da97,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5745879697507751116, guid: c88f7811fcf1e124bbdcae53b8f0da97,

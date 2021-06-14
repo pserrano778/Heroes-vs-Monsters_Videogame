@@ -25,7 +25,7 @@ public class CaballeroOscuroUlti : Ultimate
                 Animator anim = GetComponent<Animator>();
 
                 bool attack = anim.GetBool("Attack");
-                bool running = anim.GetBool("Attack");
+                bool running = anim.GetBool("Running");
 
                 anim.SetBool("Attack", true);
                 anim.SetBool("Running", false);

@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: -2979382871963201600}
   - component: {fileID: -80738311960026523}
   - component: {fileID: -2988860723888055478}
+  - component: {fileID: 8797993436658555257}
+  - component: {fileID: 3938923314704701170}
   - component: {fileID: 8967830176384848729}
   - component: {fileID: 5745879697507751116}
   - component: {fileID: 7931375396907367476}
   - component: {fileID: -2843615456214955691}
-  - component: {fileID: 8797993436658555257}
   m_Layer: 0
   m_Name: Rey
   m_TagString: Prefab
@@ -32,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8834941326367108516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3713989362187498761}
@@ -134,6 +135,43 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8797993436658555257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834941326367108516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc5462ab457bc1468da63d58f5986ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  defense: 0
+  cost: 0
+  speed: 1.5
+  attackRange: 1
+  damage: 50
+  phase: 0
+  scale: 2
+  anim: {fileID: -2979382871963201600}
+  typeOfEnemy: Monster
+--- !u!114 &3938923314704701170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834941326367108516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cffbfebe31fe8c4ca6f4501fc1e8d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 50
+  timeDuration: 2
+  ultimateDamage: 300
 --- !u!114 &8967830176384848729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,28 +265,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 0.6}
   m_EdgeRadius: 0
---- !u!114 &8797993436658555257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8834941326367108516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc5462ab457bc1468da63d58f5986ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1000
-  defense: 0
-  cost: 0
-  speed: 1.5
-  attackRange: 1
-  damage: 50
-  phase: 0
-  scale: 2
-  anim: {fileID: -2979382871963201600}
-  typeOfEnemy: Monster
 --- !u!1001 &2856396454787516126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,7 +430,7 @@ PrefabInstance:
     - target: {fileID: 4531960592076774105, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12cf2acea884e04449482da66a87326a, type: 3}
