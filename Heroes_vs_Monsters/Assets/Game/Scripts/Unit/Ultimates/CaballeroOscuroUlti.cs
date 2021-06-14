@@ -20,6 +20,9 @@ public class CaballeroOscuroUlti : Ultimate
             {
                 casting = true;
 
+                Rigidbody2D body2d = GetComponent<Rigidbody2D>();
+                Vector2 velocity = body2d.velocity;
+
                 UnitBehaviour unit = GetComponent<UnitBehaviour>();
                 unit.StopAllCoroutines();
                 Animator anim = GetComponent<Animator>();
@@ -29,12 +32,16 @@ public class CaballeroOscuroUlti : Ultimate
 
                 anim.SetBool("Attack", true);
                 anim.SetBool("Running", false);
+                body2d.velocity = new Vector2(0, 0);
 
                 GetComponent<PhotonView>().RPC("applyDarkMarkToEnemies", RpcTarget.All, unit.typeOfEnemy);
                 GetComponent<PhotonView>().RPC("ResetEnergy", RpcTarget.All);
 
                 yield return new WaitForSeconds(unit.getAnimDuration());
 
+                anim.SetBool("Attack", attack);
+                anim.SetBool("Running", running);
+                body2d.velocity = velocity;
                 unit.GoToNextState();
 
                 yield return new WaitForSeconds(timeToRemoveDarkMark);
@@ -52,7 +59,8 @@ public class CaballeroOscuroUlti : Ultimate
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (enemies[i] != null && enemies[i].GetComponent<UnitBehaviour>().getCurrentHealth() > 0)
+            if (enemies[i] != null && enemies[i].GetComponent<UnitBehaviour>().getCurrentHealth() > 0
+                && enemies[i].GetComponent<SpriteRenderer>().color == new UnityEngine.Color(1f, 1f, 1f, 1f))
             {
                 enemies[i].GetComponent<SpriteRenderer>().color = new UnityEngine.Color(0.2f, 0f, 0.4f, 1f);
             } 
