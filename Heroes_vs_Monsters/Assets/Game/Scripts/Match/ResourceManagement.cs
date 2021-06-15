@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using System;
 
@@ -13,7 +12,7 @@ public class ResourceManagement : MonoBehaviour
     private float phaseTime;
     private int resourcesPerTick;
     private int resources;
-    public TextMeshProUGUI resourceCounterText;
+    public TextMesh resourceCounterText;
 
     public GameObject[] heroesPrefabs;
 
