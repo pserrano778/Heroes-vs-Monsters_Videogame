@@ -699,11 +699,15 @@
   <ItemGroup>
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\Game\Scripts\Audio\PlayAudio.cs" />
     <Compile Include="Assets\Game\Scripts\Match\Finish.cs" />
     <Compile Include="Assets\Game\Scripts\Match\ResourceManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
+    <Compile Include="Assets\Game\Scripts\Resources\ChangeTypeOfResources.cs" />
+    <Compile Include="Assets\Game\Scripts\Settings\GameSettings.cs" />
+    <Compile Include="Assets\Game\Scripts\Settings\SettingsButton.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Bars\HealthBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Bars\UltimateBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />
@@ -721,6 +725,7 @@
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\ReyUlti.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\Ultimate.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\UnitInformation\ShowCost.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\Demo\DestroyEvent_HeroKnight.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\Demo\HeroKnight.cs" />
