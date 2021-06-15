@@ -5,21 +5,34 @@ using UnityEngine.UI;
 
 public class SettingsButton : MonoBehaviour
 {
-    static private Canvas settingsMenu;
-    static private Canvas mainMenu;
+    public GameObject settingsMenu;
+    //static private Canvas mainMenu;
 
+    private bool settingMenuActive = false;
 
-    void ShowSettingsMenu()
+    public void ChangeSettingsMenuVisibility()
     {
-        mainMenu.gameObject.SetActive(false);
+        if (settingMenuActive)
+        {
+            HideSettingsMenu();
+        }
+        else
+        {
+            ShowSettingsMenu();
+        }
+
+        settingMenuActive = !settingMenuActive;
+    }
+
+    public void ShowSettingsMenu()
+    {
+        //mainMenu.gameObject.SetActive(false);
         settingsMenu.gameObject.SetActive(true);
     }
 
-    void HideSettingsMenu()
+    public void HideSettingsMenu()
     {
         settingsMenu.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
+        //mainMenu.gameObject.SetActive(true);
     }
-
-
 }

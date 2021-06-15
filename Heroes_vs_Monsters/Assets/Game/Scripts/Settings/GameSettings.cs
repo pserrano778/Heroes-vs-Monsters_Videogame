@@ -24,11 +24,15 @@ public class GameSettings : MonoBehaviour
 
     //}
 
-    public void SetVolume(float volume)
+      
+
+    public void SetVolume()
     {
-        audioMixer.SetFloat("Volume", volume);
+        float volume = volumeSlider.value;
+        audioMixer.SetFloat("Music", volume);
         currentVolume = volume;
     }
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
