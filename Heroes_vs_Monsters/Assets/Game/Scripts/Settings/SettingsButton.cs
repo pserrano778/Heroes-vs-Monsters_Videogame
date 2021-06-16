@@ -6,14 +6,11 @@ using UnityEngine.UI;
 public class SettingsButton : MonoBehaviour
 {
     public GameObject settingsMenu;
-    public Canvas mainMenu;
-
-    static private bool settingMenuActive = false;
-
+    private bool settingMenuActive = false;
 
     public void Start()
     {
-        // settingMenuActive = false;
+        HideSettingsMenu();
     }
 
     public void ChangeSettingsMenuVisibility()
@@ -32,13 +29,11 @@ public class SettingsButton : MonoBehaviour
 
     public void ShowSettingsMenu()
     {
-        mainMenu.gameObject.SetActive(false);
         settingsMenu.gameObject.SetActive(true);
     }
 
     public void HideSettingsMenu()
     {
         settingsMenu.gameObject.SetActive(false);
-        mainMenu.gameObject.SetActive(true);
     }
 }

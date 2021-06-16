@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7580910670510324173}
   - component: {fileID: 7580910670510324174}
-  - component: {fileID: 7580910670510324172}
+  - component: {fileID: 6299046818527676722}
   - component: {fileID: -3984092298494139897}
   m_Layer: 0
   m_Name: NexusStone
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7580910670510324172
+--- !u!114 &6299046818527676722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7580910670510324175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dea0e7699b718947bfd21be7dda3d1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 521950666652ecc469dd1cd8fc7883cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10000
+  health: 1000
   defense: 0
+  endGameManager: {fileID: 0}
 --- !u!114 &-3984092298494139897
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,11 +11,16 @@ public class GameSettings : MonoBehaviour
     public Slider volumeSlider;
     float currentVolume;
     public Toggle fullScreenToggle;
+    public AudioSource music;
 
     // Start is called before the first frame update
     void Start()
     {
         LoadSettings();
+        if(music != null)
+        {
+            music.PlayDelayed(0.1f);
+        }    
     }
 
     // Update is called once per frame
@@ -90,6 +95,7 @@ public class GameSettings : MonoBehaviour
     {
         Application.Quit();
     }
+
     public void SaveSettings()
     {
         PlayerPrefs.SetInt("FullscreenPreference",

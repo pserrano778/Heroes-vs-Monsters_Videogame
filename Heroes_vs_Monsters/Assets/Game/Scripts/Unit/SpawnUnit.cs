@@ -15,7 +15,7 @@ public class SpawnUnit : MonoBehaviour
     public GameObject[] monstersSpawnPoints;
     public GameObject[] heroesPrefabs;
     public GameObject[] monstersPrefabs;
-    public BasicBehaviour nexusStone;
+    public NexusBehaviour nexusStone;
 
     private int unitCounter = 0;
     // Start is called before the first frame update

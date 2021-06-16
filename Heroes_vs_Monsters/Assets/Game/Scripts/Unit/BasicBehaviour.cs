@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class BasicBehaviour : MonoBehaviour
+public abstract class BasicBehaviour : MonoBehaviour
 {
     public int health = 1000;
     protected int currentHealth = 1000;
@@ -25,18 +25,5 @@ public class BasicBehaviour : MonoBehaviour
     }
 
     [PunRPC]
-    public virtual void takeDamageRPC(int damage)
-    {
-        int damageTaken = 1;
-        if (damage - defense > 0)
-        {
-            damageTaken = damage - defense;
-        }
-        currentHealth -= damageTaken;
-
-        if (currentHealth <= 0)
-        {
-            Finish.GameOver("Monsters");
-        }
-    }
+    public abstract void takeDamageRPC(int damage);
 }

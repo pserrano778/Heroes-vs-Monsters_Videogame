@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeManagement : MonoBehaviour
 {
     private float timeLeft;
+    public EndGameManager endGameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class TimeManagement : MonoBehaviour
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-            Finish.GameOver("Heroes");
+            endGameManager.GameOver("Heroes");
         }
     }
 }
