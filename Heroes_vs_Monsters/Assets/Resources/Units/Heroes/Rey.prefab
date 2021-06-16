@@ -172,6 +172,7 @@ MonoBehaviour:
   maxEnergy: 50
   timeDuration: 2
   ultimateDamage: 300
+  ultimateDefense: 100
 --- !u!114 &8967830176384848729
 MonoBehaviour:
   m_ObjectHideFlags: 0
