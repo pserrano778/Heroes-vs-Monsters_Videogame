@@ -1267,10 +1267,10 @@ Transform:
   m_Children:
   - {fileID: 944649080}
   - {fileID: 1463394134034159}
-  - {fileID: 1327608621}
-  - {fileID: 1218948980}
-  - {fileID: 1256627794}
   - {fileID: 1086830973}
+  - {fileID: 1256627794}
+  - {fileID: 1218948980}
+  - {fileID: 1327608621}
   - {fileID: 8579333951876563081}
   m_Father: {fileID: 1201504893}
   m_RootOrder: 6
@@ -3756,7 +3756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: 'A strong peasant who @barely knows how to wield a sword. '
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -3875,7 +3875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: He uses a spear to kill @monsters. The less resistant hero.
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -4284,11 +4284,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  hasUltimate: 0
+  description: One of the most powerful @knights in the realm.
+  hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
-  ultimateDescription: 
+  ultimateDescription: For a short period of time, his defense @level increases dramatically
+    and @he gains inmunity against enemy marks.
 --- !u!1001 &890718933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4496,7 +4497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: A low tier nobleman, @he is stronger and more resistant @than the
+    peasant.
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -5055,7 +5057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: A fast but weak low tier @monster.
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -5813,7 +5815,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
@@ -5833,7 +5835,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
@@ -5931,10 +5933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Weak and slow, but very tanky.
   hasUltimate: 0
-  hasPasive: 0
-  pasiveDescription: 
+  hasPasive: 1
+  pasiveDescription: Its attacks deal damage to every @hero in its range.
   ultimateDescription: 
 --- !u!1 &1094030039
 GameObject:
@@ -6674,7 +6676,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
@@ -6694,7 +6696,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
@@ -6797,11 +6799,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  hasUltimate: 0
+  description: An intimidating skeleton that @gets stronger when it is close to death.
+  hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
-  ultimateDescription: 
+  ultimateDescription: When its health is low, it @will gain extra damage and lifesteal.
 --- !u!1 &1230912326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6910,7 +6912,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
@@ -6930,7 +6932,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
@@ -7038,7 +7040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: A medium level monster with a @moderate amount of damage and defense.
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -7247,7 +7249,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -7267,7 +7269,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -7370,11 +7372,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  hasUltimate: 0
+  description: A deadly knight that uses @dark powers to mark and kill enemy heroes.
+  hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
-  ultimateDescription: 
+  ultimateDescription: The knight will mark all the heroes. @After some time, the
+    mark will explode, @dealing a significant amount of damage.
 --- !u!1 &1329361978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2216181157703676360, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
@@ -7399,10 +7402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: A powerful mage that deals @damage using fire spells.
   hasUltimate: 0
-  hasPasive: 0
-  pasiveDescription: 
+  hasPasive: 1
+  pasiveDescription: His fire can hit several monsters @at the same time.
   ultimateDescription: 
 --- !u!1 &1330615506
 GameObject:
@@ -8775,10 +8778,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: A foreign nobleman which uses @ the most advanced katana techniques.
   hasUltimate: 0
-  hasPasive: 0
-  pasiveDescription: 
+  hasPasive: 1
+  pasiveDescription: His fourth consecutive attack @will deal extra damage to @all
+    monsters in front of him.
   ultimateDescription: 
 --- !u!1 &1630171089
 GameObject:
@@ -10025,7 +10029,7 @@ TextMesh:
   m_GameObject: {fileID: 2022888081}
   m_Text: 
   m_OffsetZ: 0
-  m_CharacterSize: 20
+  m_CharacterSize: 16
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
@@ -10323,7 +10327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: Similar to the goblin, but @slower and more resistant.
   hasUltimate: 0
   hasPasive: 0
   pasiveDescription: 
@@ -10814,11 +10818,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  hasUltimate: 0
+  description: Jophior the First, the King of @Kandoth and the strongest knight in
+    the realm.
+  hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
-  ultimateDescription: 
+  ultimateDescription: He yells  a war cry, which @increases his  damage and defense
+    for a @short period of time.
 --- !u!1001 &7580910669413933655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11168,8 +11174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: The strongest monster and @source of all evil.
   hasUltimate: 0
   hasPasive: 1
-  pasiveDescription: When this Unit assist in a a kill @, it will bite the next enemy
+  pasiveDescription: When this Unit assist in a a kill, @it will bite the next enemy,
+    dealing @extra damage.
   ultimateDescription: 

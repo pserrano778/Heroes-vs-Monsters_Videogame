@@ -31,7 +31,7 @@ public class MouseOver : MonoBehaviour
                 {
                     string info = "Description: " + prefabInformation.description + System.Environment.NewLine
                         + "Damage: " + prefab.damage + System.Environment.NewLine
-                        + "Range: " + prefab.attackRange + System.Environment.NewLine
+                        // + "Range: " + prefab.attackRange + System.Environment.NewLine
                         + "Defense: " + prefab.defense;
 
                     if (prefabInformation.hasPasive)

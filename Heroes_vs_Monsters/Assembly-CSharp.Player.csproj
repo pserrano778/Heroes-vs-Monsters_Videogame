@@ -701,6 +701,7 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
     <Compile Include="Assets\Game\Scripts\Audio\MatchAudioManager.cs" />
     <Compile Include="Assets\Game\Scripts\Audio\PlayAudio.cs" />
+    <Compile Include="Assets\Game\Scripts\ExitGame\ExitGame.cs" />
     <Compile Include="Assets\Game\Scripts\Match\EndGameManager.cs" />
     <Compile Include="Assets\Game\Scripts\Match\GoToMainMenu.cs" />
     <Compile Include="Assets\Game\Scripts\Match\MouseOver.cs" />
@@ -729,6 +730,7 @@
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\ReyUlti.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Ultimates\Ultimate.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\UnitInformation\BasicInformation.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\UnitInformation\ShowCost.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\ColorSwap\ColorSwap_HeroKnight.cs" />
     <Compile Include="Assets\Heroes\Defensor del Rey\Demo\DestroyEvent_HeroKnight.cs" />
