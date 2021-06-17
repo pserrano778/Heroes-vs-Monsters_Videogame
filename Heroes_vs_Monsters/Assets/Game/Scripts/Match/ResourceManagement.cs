@@ -24,12 +24,15 @@ public class ResourceManagement : MonoBehaviour
 
     private int currentPhase;
 
+    public TextMesh phaseText;
+
     // Start is called before the first frame update
     void Start()
     {
         elapsedTime = 0;
         resources = 0;
         currentPhase = 1;
+        phaseText.text = "Phase: " + currentPhase;
         phaseTime = 0;
         string typeOfPlayer = NetworkManager.GetTypeOfPlayer();
 
@@ -72,9 +75,8 @@ public class ResourceManagement : MonoBehaviour
             elapsedTime -= TICK_TIME;
             resources += resourcesPerTick;
             
-            if (phaseTime / TIME_TO_NEXT_PHASE >= 1)
+            if (currentPhase < MAX_PHASE && phaseTime / TIME_TO_NEXT_PHASE >= 1)
             {
-                NextPhase();
                 phaseTime -= TIME_TO_NEXT_PHASE;
                 NextPhase();
             }
@@ -131,6 +133,7 @@ public class ResourceManagement : MonoBehaviour
     public void NextPhase()
     {
         currentPhase++;
+        phaseText.text = "Phase: " + currentPhase;
         resourcesPerTick = (resourcesPerTick / (currentPhase - 1)) * currentPhase;
         UpdateUnitsColours();
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
@@ -10,7 +11,19 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private List<RoomInfo> roomList = new List<RoomInfo>();
     static private string typeOfPlayer = "";
     private string enemyTypeOfPlayer = "";
-    private bool createdRoom = false;
+
+    public Button heroesButton;
+    public Button monstersButton;
+    public Button cancelQueueButton;
+    public GameObject queueText;
+
+    public enum QueueState
+    {
+        Queuing,
+        Queued,
+        Starting,
+        Cancelled,
+    }
 
     // Type of lobby
     private TypedLobby sqlLobby = new TypedLobby("customSqlLobby", LobbyType.SqlLobby);
@@ -20,11 +33,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void FindGameAs(string typeOfPlayer)
     {
-        if (createdRoom)
-        {
-            PhotonNetwork.LeaveRoom();
-            createdRoom = false;
-        }
+
+        changeStateQueueButtons(false);
 
         NetworkManager.typeOfPlayer = typeOfPlayer;
 
@@ -43,6 +53,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void ConnectedToServer()
     {
+        UpdateQueueText(QueueState.Queuing);
+        
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Try Connect to Server...");
     }
@@ -90,7 +102,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
         // create the room
         PhotonNetwork.CreateRoom(null, roomOptions, sqlLobby);
-        createdRoom = true;
     }
 
     public override void OnJoinedRoom()
@@ -102,7 +113,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         // If there is 2 players, load the game
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
+            UpdateQueueText(QueueState.Starting);
+            cancelQueueButton.gameObject.SetActive(false);
             LoadLevel("Match");
+        }
+        else
+        {
+            UpdateQueueText(QueueState.Queued);
+            cancelQueueButton.gameObject.SetActive(true);
         }
     }
 
@@ -114,6 +132,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         // If there is 2 players, load the game and hide the room
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
+            UpdateQueueText(QueueState.Starting);
+            cancelQueueButton.gameObject.SetActive(false);
+
             PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
             LoadLevel("Match");
@@ -134,5 +155,44 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     static public string GetTypeOfPlayer()
     {
         return typeOfPlayer;
+    }
+
+    private void UpdateQueueText(QueueState queueState)
+    {
+        if (queueState == QueueState.Queued)
+        {
+            queueText.GetComponent<TextMesh>().text = "Queued as " + GetTypeOfPlayer();
+            queueText.SetActive(true);
+        }
+        else if (queueState == QueueState.Queuing)
+        {
+            queueText.GetComponent<TextMesh>().text = "Queuing";
+            queueText.SetActive(true);
+        }
+        else if (queueState == QueueState.Starting)
+        {
+            queueText.GetComponent<TextMesh>().text = "Starting match";
+            queueText.SetActive(true);
+        }
+        else
+        {
+            queueText.GetComponent<TextMesh>().text = "";
+            queueText.SetActive(false);
+        }
+    }
+
+    private void changeStateQueueButtons(bool active)
+    {
+        heroesButton.gameObject.SetActive(active);
+        monstersButton.gameObject.SetActive(active);
+    }
+
+    public void CancelQueue()
+    {
+        PhotonNetwork.Disconnect();
+
+        UpdateQueueText(QueueState.Cancelled);
+        cancelQueueButton.gameObject.SetActive(false);
+        changeStateQueueButtons(true);
     }
 }

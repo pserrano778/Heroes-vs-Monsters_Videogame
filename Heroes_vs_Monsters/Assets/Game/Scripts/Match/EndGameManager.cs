@@ -11,19 +11,19 @@ public class EndGameManager : MonoBehaviourPunCallbacks
     public MatchAudioManager audioManager;
     public GameObject endGameText;
 
-    private bool hasExited = false;
+    private bool hasFinished = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        hasExited = false;
+        hasFinished = false;
         endGameText.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
     }
 
     public void GameOver(string winner)
     {
-        if (!hasExited)
+        if (!hasFinished)
         {
             endGameText.SetActive(true);
             Time.timeScale = 0;
@@ -37,9 +37,8 @@ public class EndGameManager : MonoBehaviourPunCallbacks
                 audioManager.PlayLoseTheme();
             }
 
-            PhotonNetwork.LeaveRoom();
             mainMenuButton.gameObject.SetActive(true);
-            hasExited = true;
+            hasFinished = true;
         }
     }
 }
