@@ -699,8 +699,11 @@
   <ItemGroup>
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\Game\Scripts\Audio\MatchAudioManager.cs" />
     <Compile Include="Assets\Game\Scripts\Audio\PlayAudio.cs" />
-    <Compile Include="Assets\Game\Scripts\Match\Finish.cs" />
+    <Compile Include="Assets\Game\Scripts\Match\EndGameManager.cs" />
+    <Compile Include="Assets\Game\Scripts\Match\GoToMainMenu.cs" />
+    <Compile Include="Assets\Game\Scripts\Match\MouseOver.cs" />
     <Compile Include="Assets\Game\Scripts\Match\ResourceManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
@@ -715,6 +718,7 @@
     <Compile Include="Assets\Game\Scripts\Unit\MageBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MonsterBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\MushroomBehaviour.cs" />
+    <Compile Include="Assets\Game\Scripts\Unit\NexusBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SamuraiBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SlimeBehaviour.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\SpawnUnit.cs" />
