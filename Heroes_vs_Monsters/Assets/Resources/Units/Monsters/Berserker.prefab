@@ -193,14 +193,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0473064687ff354ba3cd523ad790594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
-  defense: 0
-  cost: 0
+  health: 500
+  defense: 10
+  cost: 30
   speed: 1
   attackRange: 1
-  damage: 10
-  phase: 1
-  scale: 2.5
+  damage: 150
+  phase: 3
+  scale: 2.1
   anim: {fileID: 5437732507391211583}
   typeOfEnemy: Hero
   nexusStone: {fileID: 0}
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnergy: 10
-  timeDuration: 5
-  ultimateDamage: 500
+  timeDuration: 3
+  ultimateDamage: 300
   ultimateLifestealPercentage: 0.3
 --- !u!114 &6416703402834308734
 MonoBehaviour:

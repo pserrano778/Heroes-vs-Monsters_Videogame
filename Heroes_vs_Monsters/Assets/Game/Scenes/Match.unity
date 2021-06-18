@@ -1673,11 +1673,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1477789729187202676, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
         type: 3}
-      propertyPath: health
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: -1477789729187202676, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
-        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -1699,7 +1694,7 @@ PrefabInstance:
     - target: {fileID: 2216181157703676360, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
         type: 3}
       propertyPath: m_Name
-      value: Mago de fuego
+      value: Fire Mage
       objectReference: {fileID: 0}
     - target: {fileID: 2216181157703676360, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
         type: 3}
@@ -2391,16 +2386,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -713507643771574917, guid: c2b08965c5ca37f4d91002d1cc62e399,
         type: 3}
-      propertyPath: cost
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -713507643771574917, guid: c2b08965c5ca37f4d91002d1cc62e399,
-        type: 3}
-      propertyPath: phase
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -713507643771574917, guid: c2b08965c5ca37f4d91002d1cc62e399,
-        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -2412,7 +2397,7 @@ PrefabInstance:
     - target: {fileID: 112465040181548853, guid: c2b08965c5ca37f4d91002d1cc62e399,
         type: 3}
       propertyPath: m_Name
-      value: Lancero
+      value: Spearman
       objectReference: {fileID: 0}
     - target: {fileID: 112465040181548853, guid: c2b08965c5ca37f4d91002d1cc62e399,
         type: 3}
@@ -4314,21 +4299,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
-      propertyPath: cost
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
-        type: 3}
-      propertyPath: phase
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
-        type: 3}
-      propertyPath: scale
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -7005245749372822553, guid: d58955034eda6554183cdc6b617c0a14,
-        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -4435,7 +4405,7 @@ PrefabInstance:
     - target: {fileID: 6036964468028338540, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
       propertyPath: m_Name
-      value: Caballero
+      value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 6036964468028338540, guid: d58955034eda6554183cdc6b617c0a14,
         type: 3}
@@ -4592,11 +4562,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2750128186519359639, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
         type: 3}
-      propertyPath: phase
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2750128186519359639, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
-        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -4613,7 +4578,7 @@ PrefabInstance:
     - target: {fileID: 3931959558763317713, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
         type: 3}
       propertyPath: m_Name
-      value: Defensor del Rey
+      value: Defender
       objectReference: {fileID: 0}
     - target: {fileID: 3931959558763317713, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
         type: 3}
@@ -4934,7 +4899,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: 4be17678c6207ee4cb3c0faa9db51f64,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: 4be17678c6207ee4cb3c0faa9db51f64,
         type: 3}
@@ -4996,6 +4961,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4672051018514509989, guid: 4be17678c6207ee4cb3c0faa9db51f64,
+        type: 3}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 4720450067152138276, guid: 4be17678c6207ee4cb3c0faa9db51f64,
         type: 3}
       propertyPath: m_Enabled
@@ -5802,6 +5772,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401946832757792180, guid: dbb667870c85168439bbf20f9e6b50a5,
+        type: 3}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 1763066509114479880, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
       propertyPath: m_IsActive
@@ -5835,7 +5810,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: dbb667870c85168439bbf20f9e6b50a5,
         type: 3}
@@ -6653,6 +6628,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4721408614743869206, guid: adcbe9e1ffe1e37428675c0f65041b84,
+        type: 3}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 4876833474532122813, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_Enabled
@@ -6696,7 +6676,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
@@ -6932,7 +6912,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
@@ -6982,7 +6962,7 @@ PrefabInstance:
     - target: {fileID: 4671155678197652732, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
       propertyPath: m_Name
-      value: Ojo flotante
+      value: Floating Eye
       objectReference: {fileID: 0}
     - target: {fileID: 4671155678197652732, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
@@ -6991,14 +6971,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4672051018514509989, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
-      propertyPath: cost
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4672051018514509989, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 4720450067152138276, guid: 21c8667ec87f52c4ab26f4730f9aa66b,
         type: 3}
       propertyPath: m_Enabled
@@ -7228,19 +7208,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
-      propertyPath: cost
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
-        type: 3}
-      propertyPath: scale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
-        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4981764210771250720, guid: 22014e577e6387041a3f24fb7cd49311,
+        type: 3}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 5437732507391211580, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_FlipX
@@ -7319,7 +7294,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211582, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_Name
-      value: Caballero Oscuro
+      value: Dark Knight
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211582, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -7376,8 +7351,8 @@ MonoBehaviour:
   hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
-  ultimateDescription: The knight will mark all the heroes. @After some time, the
-    mark will explode, @dealing a significant amount of damage.
+  ultimateDescription: The knight will mark all heroes. @After some time, the mark
+    will explode, @dealing a significant amount of damage.
 --- !u!1 &1329361978 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2216181157703676360, guid: 9d4dea7ac22c32940b0c01e3d41c4163,
@@ -10352,22 +10327,12 @@ PrefabInstance:
     - target: {fileID: 3550851514768253140, guid: 47e184886184fc2418c8b831222ad4d1,
         type: 3}
       propertyPath: m_Name
-      value: Campesino
+      value: Peasant
       objectReference: {fileID: 0}
     - target: {fileID: 3550851514768253140, guid: 47e184886184fc2418c8b831222ad4d1,
         type: 3}
       propertyPath: m_Layer
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550851514768253141, guid: 47e184886184fc2418c8b831222ad4d1,
-        type: 3}
-      propertyPath: cost
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3550851514768253141, guid: 47e184886184fc2418c8b831222ad4d1,
-        type: 3}
-      propertyPath: phase
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3550851514768253141, guid: 47e184886184fc2418c8b831222ad4d1,
         type: 3}
@@ -10516,7 +10481,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
@@ -10566,7 +10531,7 @@ PrefabInstance:
     - target: {fileID: 4671155678197652732, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
       propertyPath: m_Name
-      value: Soldado Oscuro
+      value: Dark Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 4671155678197652732, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
@@ -10592,7 +10557,7 @@ PrefabInstance:
         type: 3}
       propertyPath: nexusStone
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 4720450067152138276, guid: a11bef3d0c4d708429cd7b97db20e2bb,
         type: 3}
       propertyPath: m_Enabled
@@ -10780,7 +10745,7 @@ PrefabInstance:
     - target: {fileID: 8834941326367108516, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
       propertyPath: m_Name
-      value: Rey
+      value: King
       objectReference: {fileID: 0}
     - target: {fileID: 8834941326367108516, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
@@ -10969,6 +10934,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6472164804160236763, guid: 7afeda64de07b3b4784c8375b56ed2e3,
+        type: 3}
+      propertyPath: nexusStone
+      value: 
+      objectReference: {fileID: 7580910669413933656}
     - target: {fileID: 1143580077275008583, guid: 7afeda64de07b3b4784c8375b56ed2e3,
         type: 3}
       propertyPath: m_IsActive
@@ -11107,7 +11077,7 @@ PrefabInstance:
     - target: {fileID: 5623299249481063939, guid: 7afeda64de07b3b4784c8375b56ed2e3,
         type: 3}
       propertyPath: m_Name
-      value: Seta
+      value: Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 5623299249481063939, guid: 7afeda64de07b3b4784c8375b56ed2e3,
         type: 3}

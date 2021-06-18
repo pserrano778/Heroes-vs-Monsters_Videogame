@@ -36,7 +36,7 @@ public class MouseOver : MonoBehaviour
 
                     if (prefabInformation.hasPasive)
                     {
-                        info += System.Environment.NewLine + "Pasive: " + prefabInformation.pasiveDescription;
+                        info += System.Environment.NewLine + "Passive: " + prefabInformation.pasiveDescription;
                     }
 
                     if (prefab.GetComponent<BasicInformation>().hasUltimate)

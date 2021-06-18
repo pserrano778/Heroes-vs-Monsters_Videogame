@@ -168,12 +168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72cd4d1a4c4e1c4882847686d05b46d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
   defense: 10
   cost: 10
   speed: 1.5
   attackRange: 1
-  damage: 50
+  damage: 75
   phase: 1
   scale: 2
   anim: {fileID: 4720450067152138276}

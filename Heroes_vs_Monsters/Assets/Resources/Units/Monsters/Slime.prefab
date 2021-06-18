@@ -167,13 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95783a41de5112346af9202738c72d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  defense: 0
-  cost: 0
+  health: 500
+  defense: 20
+  cost: 20
   speed: 0.7
   attackRange: 1
   damage: 50
-  phase: 1
+  phase: 2
   scale: 2.5
   anim: {fileID: 5437732507391211583}
   typeOfEnemy: Hero

@@ -192,16 +192,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bffe378c3bc2f34ab9c6e30fa9e61f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  defense: 0
-  cost: 0
-  speed: 1.3
+  health: 500
+  defense: 15
+  cost: 15
+  speed: 1
   attackRange: 1
-  damage: 0
-  phase: 0
+  damage: 100
+  phase: 3
   scale: 2
   anim: {fileID: 400587216905765423}
   typeOfEnemy: Monster
+  passiveExtraDamage: 100
 --- !u!114 &-5361001595495171492
 MonoBehaviour:
   m_ObjectHideFlags: 0

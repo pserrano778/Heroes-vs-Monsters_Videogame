@@ -5,13 +5,14 @@ using UnityEngine;
 public class SamuraiBehaviour : UnitBehaviour
 {
     private int numAttacks = 0;
+    public int passiveExtraDamage;
 
     protected override void DamageEnemy()
     {
         
         if (numAttacks == 3)
         {
-            DoDamageToFrontEnemies(damage + 50);
+            DoDamageToFrontEnemies(damage + passiveExtraDamage);
         }
         else
         {
