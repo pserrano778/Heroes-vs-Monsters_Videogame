@@ -173,7 +173,7 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
                 // Set the target to null
                 target = null;
 
-                yield return 0;
+                animDuration = 0f;
             }
             else
             {
@@ -205,7 +205,7 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
                 DamageEnemy();
             }
         }
-
+        
         // Go to the next state
         GoToNextState();
     }
