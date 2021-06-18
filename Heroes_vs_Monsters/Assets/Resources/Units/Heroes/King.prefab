@@ -148,11 +148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
-  defense: 40
+  defense: 50
   cost: 50
-  speed: 1
+  speed: 0.8
   attackRange: 1
-  damage: 150
+  damage: 200
   phase: 4
   scale: 2
   anim: {fileID: -2979382871963201600}
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 70
   timeDuration: 3
-  ultimateDamage: 300
-  ultimateDefense: 60
+  ultimateDamage: 450
+  ultimateDefense: 100
 --- !u!114 &8967830176384848729
 MonoBehaviour:
   m_ObjectHideFlags: 0

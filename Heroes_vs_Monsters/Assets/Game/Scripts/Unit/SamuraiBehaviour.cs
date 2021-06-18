@@ -6,31 +6,24 @@ public class SamuraiBehaviour : UnitBehaviour
 {
     private int numAttacks = 0;
     public int passiveExtraDamage;
-
+    public int numMaxAttacks;
     protected override void DamageEnemy()
     {
         
-        if (numAttacks == 3)
+        if (numAttacks == numMaxAttacks)
         {
             DoDamageToFrontEnemies(damage + passiveExtraDamage);
+            numAttacks = 0;
         }
         else
         {
             target.takeDamage(damage);
+            numAttacks++;
         }
 
         if (target.getCurrentHealth() <= 0)
         {
             target = null;
-        }
-
-        if (numAttacks == 3)
-        {
-            numAttacks = 0;
-        }
-        else
-        {
-            numAttacks++;
         }
 
         anim.SetInteger("numAttacks", numAttacks);

@@ -21,7 +21,13 @@ public abstract class BasicBehaviour : MonoBehaviour
 
     public virtual void takeDamage(int damage)
     {
-        GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damage);
+        int damageTaken = 1;
+        if (damage - defense > 0)
+        {
+            damageTaken = damage - defense;
+        }
+
+        GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damageTaken);
     }
 
     [PunRPC]

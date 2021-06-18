@@ -20,8 +20,7 @@ public class SlimeBehaviour : MonsterBehaviour
             if ((enemy.getLane() == this.getLane() && enemy.getCurrentHealth() > 0) || 
                 (enemy.tag == "Nexus" && enemy.getCurrentHealth() > 0))
             {
-                if ( (enemy.transform.position.x - transform.position.x >= -attackRange)
-                    ||  (enemy.transform.position.x - transform.position.x <= attackRange))
+                if ( Mathf.Abs(enemy.transform.position.x - transform.position.x) <= attackRange)
                 {
                     enemy.takeDamage(damage);
 

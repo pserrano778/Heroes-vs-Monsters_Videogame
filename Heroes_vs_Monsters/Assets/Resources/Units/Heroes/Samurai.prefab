@@ -195,14 +195,15 @@ MonoBehaviour:
   health: 500
   defense: 15
   cost: 15
-  speed: 1
+  speed: 0.75
   attackRange: 1
-  damage: 100
+  damage: 150
   phase: 3
   scale: 2
   anim: {fileID: 400587216905765423}
   typeOfEnemy: Monster
-  passiveExtraDamage: 100
+  passiveExtraDamage: 400
+  numMaxAttacks: 2
 --- !u!114 &-5361001595495171492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.698
+      value: 0.584
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}

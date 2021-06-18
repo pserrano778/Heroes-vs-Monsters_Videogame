@@ -193,11 +193,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 350
-  defense: 20
+  defense: 25
   cost: 10
-  speed: 1
+  speed: 0.8
   attackRange: 1
-  damage: 85
+  damage: 60
   phase: 2
   scale: 2.5
   anim: {fileID: 6036964468028338543}
@@ -326,6 +326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705414342180055394, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -33.2
       objectReference: {fileID: 0}
     - target: {fileID: 4531960592076774105, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}

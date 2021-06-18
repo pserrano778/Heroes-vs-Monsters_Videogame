@@ -10,12 +10,7 @@ public class NexusBehaviour : BasicBehaviour
     [PunRPC]
     public override void takeDamageRPC(int damage)
     {
-        int damageTaken = 1;
-        if (damage - defense > 0)
-        {
-            damageTaken = damage - defense;
-        }
-        currentHealth -= damageTaken;
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {

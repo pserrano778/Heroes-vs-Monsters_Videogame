@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521950666652ecc469dd1cd8fc7883cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 5000
   defense: 0
   endGameManager: {fileID: 0}
 --- !u!114 &-3984092298494139897

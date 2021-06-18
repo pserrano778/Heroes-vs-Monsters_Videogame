@@ -113,17 +113,9 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
                 {
                     transform.localScale = new Vector3(-scale, scale, 1.0f);
                 }
-                if (distanceToTarget > attackRange)
+                if (Mathf.Abs(distanceToTarget) > attackRange)
                 {
 
-                    body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
-
-                    anim.SetBool("Running", true);
-                }
-                else if (distanceToTarget < -attackRange)
-                {
-
-                    // Move
                     body2d.velocity = new Vector2(distanceToTarget * speed, body2d.velocity.y);
 
                     anim.SetBool("Running", true);
@@ -149,7 +141,6 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
         float animDuration = 200;
         while (state == State.Attack)
         {
-            
             if (target == null || target.getCurrentHealth() <= 0)
             {
                 state = State.Idle;
@@ -159,7 +150,19 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
             }
             else
             {
-                animDuration = getAnimDuration();
+                float targetPosition = target.transform.position.x;
+                float distanceToTarget = targetPosition - transform.position.x;
+
+                if (Mathf.Abs(distanceToTarget) > attackRange)
+                {
+                    state = State.Follow;
+                    anim.SetBool("Attack", false);
+                    animDuration = 0f;
+                }
+                else
+                {
+                    animDuration = getAnimDuration();
+                }
             }
             yield return new WaitForSeconds(animDuration);
 
@@ -197,18 +200,21 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
     public override void takeDamage(int damage)
     {
         if (!GetComponent<PhotonView>().IsMine)
-            GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damage);
+        {
+            int damageTaken = 1;
+            if (damage - defense > 0)
+            {
+                damageTaken = damage - defense;
+            }
+
+            GetComponent<PhotonView>().RPC("takeDamageRPC", RpcTarget.All, damageTaken);
+        }
     }
 
     [PunRPC]
     public override void takeDamageRPC(int damage)
     {
-        int damageTaken = 1;
-        if (damage - defense > 0)
-        {
-            damageTaken = damage - defense;
-        }
-        currentHealth -= damageTaken;
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {

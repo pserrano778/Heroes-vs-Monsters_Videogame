@@ -170,11 +170,11 @@ MonoBehaviour:
   health: 200
   defense: 10
   cost: 10
-  speed: 1
+  speed: 0.6
   attackRange: 0.9
   damage: 50
   phase: 1
-  scale: 0.8
+  scale: 0.7
   anim: {fileID: 4720450067152138276}
   typeOfEnemy: Hero
   nexusStone: {fileID: 0}
@@ -260,12 +260,12 @@ PrefabInstance:
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}

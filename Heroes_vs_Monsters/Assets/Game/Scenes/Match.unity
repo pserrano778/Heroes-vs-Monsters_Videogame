@@ -1398,7 +1398,7 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7242285
+      value: 0.745
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -1482,7 +1482,7 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71882725
+      value: 0.709
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -1890,6 +1890,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8579333951876563081}
     m_Modifications:
+    - target: {fileID: 1461866150046741025, guid: 7ae3550404a31b14e903f63965bf3aa3,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209870, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_Name
@@ -1918,7 +1923,7 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13786191
+      value: -0.055
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -2113,7 +2118,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 406541186}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2447,7 +2452,7 @@ PrefabInstance:
     - target: {fileID: 4722933368431921243, guid: c2b08965c5ca37f4d91002d1cc62e399,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.37
+      value: -6.46
       objectReference: {fileID: 0}
     - target: {fileID: 4722933368431921243, guid: c2b08965c5ca37f4d91002d1cc62e399,
         type: 3}
@@ -3278,7 +3283,7 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.72716254
+      value: 0.703
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -3753,6 +3758,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1218948980}
     m_Modifications:
+    - target: {fileID: 1461866150046741025, guid: 7ae3550404a31b14e903f63965bf3aa3,
+        type: 3}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209870, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_Name
@@ -3781,7 +3791,7 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1492998
+      value: -0.082
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -4196,12 +4206,12 @@ PrefabInstance:
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.22199982
+      value: -0.10927832
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.67969674
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 4659742989000209871, guid: 7ae3550404a31b14e903f63965bf3aa3,
         type: 3}
@@ -4513,7 +4523,7 @@ PrefabInstance:
     - target: {fileID: 1554200838560351622, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -1.05
       objectReference: {fileID: 0}
     - target: {fileID: 1554200838560351622, guid: bc4a6ef69c7966e4fa2e2d2e663b8fb2,
         type: 3}
@@ -4904,7 +4914,7 @@ PrefabInstance:
     - target: {fileID: 4667479881580340158, guid: 4be17678c6207ee4cb3c0faa9db51f64,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.5061345
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 4667479881580340158, guid: 4be17678c6207ee4cb3c0faa9db51f64,
         type: 3}
@@ -5495,12 +5505,12 @@ PrefabInstance:
     - target: {fileID: 400587216905765417, guid: c5f2babd1e8a0b44db55af1c0d2a7637,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400587216905765417, guid: c5f2babd1e8a0b44db55af1c0d2a7637,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.472135
+      value: -6.43
       objectReference: {fileID: 0}
     - target: {fileID: 400587216905765417, guid: c5f2babd1e8a0b44db55af1c0d2a7637,
         type: 3}
@@ -6676,7 +6686,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -1.62
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: adcbe9e1ffe1e37428675c0f65041b84,
         type: 3}
@@ -7244,7 +7254,7 @@ PrefabInstance:
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5437732507391211581, guid: 22014e577e6387041a3f24fb7cd49311,
         type: 3}
@@ -7347,7 +7357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: A deadly knight that uses @dark powers to mark and kill enemy heroes.
+  description: A deadly knight that uses @dark power to mark and kill enemy heroes.
   hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
@@ -8249,7 +8259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 271}
+  m_AnchoredPosition: {x: 0, y: 399}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!102 &1525959154
@@ -9541,8 +9551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: -13.5}
-  m_SizeDelta: {x: 158, y: 165}
+  m_AnchoredPosition: {x: -3, y: 18}
+  m_SizeDelta: {x: 140, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740591969
 MonoBehaviour:
@@ -10675,12 +10685,12 @@ PrefabInstance:
     - target: {fileID: 3035557525719320997, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1.79
       objectReference: {fileID: 0}
     - target: {fileID: 3035557525719320997, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.382135
+      value: -6.42
       objectReference: {fileID: 0}
     - target: {fileID: 3035557525719320997, guid: c88f7811fcf1e124bbdcae53b8f0da97,
         type: 3}
@@ -10783,8 +10793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe37a93921ac1494fb0cea53e1de5a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Jophior the First, the King of @Kandoth and the strongest knight in
-    the realm.
+  description: Jophior the First, the King of @Kandoth and the strongest knight.
   hasUltimate: 1
   hasPasive: 0
   pasiveDescription: 
@@ -10801,6 +10810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sceneViewId
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299046818527676722, guid: 0157e6da45f6cfd43a43ba4357ef9e1e,
+        type: 3}
+      propertyPath: defense
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6299046818527676722, guid: 0157e6da45f6cfd43a43ba4357ef9e1e,
         type: 3}
@@ -10977,7 +10991,7 @@ PrefabInstance:
     - target: {fileID: 2456436655566658188, guid: 7afeda64de07b3b4784c8375b56ed2e3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 1.7599998
       objectReference: {fileID: 0}
     - target: {fileID: 2456436655566658188, guid: 7afeda64de07b3b4784c8375b56ed2e3,
         type: 3}

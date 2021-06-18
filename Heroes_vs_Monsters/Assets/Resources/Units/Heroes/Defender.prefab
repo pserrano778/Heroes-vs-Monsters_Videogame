@@ -169,14 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc5462ab457bc1468da63d58f5986ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 350
-  defense: 10
+  health: 600
+  defense: 30
   cost: 15
-  speed: 1
+  speed: 0.8
   attackRange: 1
-  damage: 100
+  damage: 60
   phase: 3
-  scale: 1
+  scale: 0.8
   anim: {fileID: 5010609047425019254}
   typeOfEnemy: Monster
 --- !u!114 &3638316292184548062
@@ -276,12 +276,12 @@ PrefabInstance:
     - target: {fileID: 1452772432884036567, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.008
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.008
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 1452772432884036567, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.442
+      value: 1.407
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: 12cf2acea884e04449482da66a87326a,
         type: 3}
@@ -361,12 +361,12 @@ PrefabInstance:
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.008
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.008
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1452772432884036567, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
         type: 3}

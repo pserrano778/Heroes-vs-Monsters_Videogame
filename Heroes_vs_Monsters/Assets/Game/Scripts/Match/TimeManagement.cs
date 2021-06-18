@@ -14,21 +14,19 @@ public class TimeManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 60;
-        
-        UpdateTimeText();
+        timeLeft = 240;
+
+        StartCoroutine(UpdateTimeText());
     }
 
     // Update is called once per frame
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        UpdateTimeText();
         if (timeLeft < 0)
         {
             endGameManager.GameOver("Heroes");
         }
-        StartCoroutine(UpdateTimeText());
     }
 
     private IEnumerator UpdateTimeText()
@@ -36,7 +34,7 @@ public class TimeManagement : MonoBehaviour
         while (!(timeLeft < 0))
         {
             minutes = ((int)timeLeft) / 60;
-            seconds = Mathf.CeilToInt(timeLeft % 60);
+            seconds = ((int)timeLeft) % 60;
             string textSeconds = "";
             if (seconds < 10)
             {
@@ -47,7 +45,7 @@ public class TimeManagement : MonoBehaviour
                 textSeconds = seconds.ToString();
             }
             timeText.text = minutes + ":" + textSeconds;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.33f);
         }
         timeText.text = "0:00";
     }

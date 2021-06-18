@@ -5,9 +5,9 @@ using System;
 
 public class ResourceManagement : MonoBehaviour
 {
-    private const float TICK_TIME = 5.0f;
-    private const float TIME_TO_NEXT_PHASE = 10f;
-    private const int MAX_PHASE = 5;
+    private const float TICK_TIME = 2.0f;
+    private const float TIME_TO_NEXT_PHASE = 60f;
+    private const int MAX_PHASE = 4;
     private float elapsedTime;
     private float phaseTime;
     private int resourcesPerTick;
@@ -39,12 +39,12 @@ public class ResourceManagement : MonoBehaviour
         if (typeOfPlayer == "Heroes")
         {
             unitsPrefabs = heroesPrefabs;
-            resourcesPerTick = 5;
+            resourcesPerTick = 1;
         }
         else
         {
             unitsPrefabs = monstersPrefabs;
-            resourcesPerTick = 10;
+            resourcesPerTick = 2;
         }
 
         originalColours = new UnityEngine.Color[unitsPrefabs.Length];
