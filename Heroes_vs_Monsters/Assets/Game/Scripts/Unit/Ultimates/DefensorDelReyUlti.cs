@@ -9,41 +9,42 @@ public class DefensorDelReyUlti : Ultimate
     public float timeDuration;
     public int ultimateDefense;
 
-    private static readonly object castingUltimate = new object();
-
     protected override IEnumerator castUltimate()
     {
+        // Store base defense
         int baseDefense = GetComponent<UnitBehaviour>().defense;
 
+        // Apply ultimate using RPC
         GetComponent<PhotonView>().RPC("ApplyUltimate", RpcTarget.All);
 
-        // wait until ultimate wears off
+        // Wait until ultimate wears off
         yield return new WaitForSeconds(timeDuration);
 
+        // Remove ultimate using RPC
         GetComponent<PhotonView>().RPC("RemoveUltimate", RpcTarget.All, baseDefense);
     }
 
     [PunRPC]
     private void ApplyUltimate()
     {
-        // get unit
+        // Get unit
         UnitBehaviour unit = GetComponent<UnitBehaviour>();
 
-        // update (increase) unit defense
+        // Update (increase) unit defense
 
         unit.defense = ultimateDefense;
 
-        // change colour to show that the unit is using its ultimate
+        // Change colour to show that the unit is using its ultimate
         unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1, 0.92f, 0.016f, 1);
     }
 
     [PunRPC]
     private void RemoveUltimate(int baseDefense)
     {
-        // get unit
+        // Get unit
 
         UnitBehaviour unit = GetComponent<UnitBehaviour>();
-        // change back colour and defense to base values
+        // Change back colour and defense to base values
         unit.GetComponent<SpriteRenderer>().color = new UnityEngine.Color(1f, 1f, 1f, 1f);
         unit.defense = baseDefense;
     }

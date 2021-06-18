@@ -15,8 +15,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public Button heroesButton;
     public Button monstersButton;
     public Button cancelQueueButton;
+    public Button backButton;
     public GameObject queueText;
-
+    public Button exitButton;
     public enum QueueState
     {
         Queuing,
@@ -33,9 +34,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void FindGameAs(string typeOfPlayer)
     {
-
+        // When looking for a game, diable queue and menu buttons
         changeStateQueueButtons(false);
 
+        // Set the type of player
         NetworkManager.typeOfPlayer = typeOfPlayer;
 
         // Set the type of units that the enemy will control
@@ -48,21 +50,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             enemyTypeOfPlayer = "Heroes";
         }
 
+        // Connect to the server
         ConnectedToServer();
     }
 
     void ConnectedToServer()
     {
+        // Change the queue display text
         UpdateQueueText(QueueState.Queuing);
         
+        // Connect to photon Network
         PhotonNetwork.ConnectUsingSettings();
-        Debug.Log("Try Connect to Server...");
     }
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connect To Server.");  
-
         base.OnConnectedToMaster();
 
         // Try to Join to a random Room
@@ -81,10 +83,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         // If the player hasn't found any room, create a new one
-        Debug.Log("Creating a Room");
         CreateRoom();
-
     }
+
     private void CreateRoom()
     {
         RoomOptions roomOptions = new RoomOptions();
@@ -106,37 +107,47 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("joined a Room");
         base.OnJoinedRoom();
-        print(PhotonNetwork.CurrentRoom.CustomProperties.ToString());
 
         // If there is 2 players, load the game
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
+            // Update the queue display text
             UpdateQueueText(QueueState.Starting);
+
+            // Disable cancel queue button
             cancelQueueButton.gameObject.SetActive(false);
+
+            // Load the scene
             LoadLevel("Match");
         }
         else
         {
+            // Update the queue display text
             UpdateQueueText(QueueState.Queued);
+
+            // Enable cancel queue button
             cancelQueueButton.gameObject.SetActive(true);
         }
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("A new player has joined.");
         base.OnPlayerEnteredRoom(newPlayer);
 
         // If there is 2 players, load the game and hide the room
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
+            // Update the queue display text
             UpdateQueueText(QueueState.Starting);
+
+            // Disable cancel queue button
             cancelQueueButton.gameObject.SetActive(false);
 
             PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.CurrentRoom.IsOpen = false;
+
+            // Load scene
             LoadLevel("Match");
         }
     }
@@ -154,11 +165,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     static public string GetTypeOfPlayer()
     {
+        // Return the type of player
         return typeOfPlayer;
     }
 
     private void UpdateQueueText(QueueState queueState)
     {
+        // If the player is in any state of the queue, activate the text and update it
         if (queueState == QueueState.Queued)
         {
             queueText.GetComponent<TextMesh>().text = "Queued as " + GetTypeOfPlayer();
@@ -174,7 +187,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             queueText.GetComponent<TextMesh>().text = "Starting match";
             queueText.SetActive(true);
         }
-        else
+        else // If he is not in queue, disable the text
         {
             queueText.GetComponent<TextMesh>().text = "";
             queueText.SetActive(false);
@@ -183,16 +196,25 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void changeStateQueueButtons(bool active)
     {
+        // Enable or disable the main menu buttons
         heroesButton.gameObject.SetActive(active);
         monstersButton.gameObject.SetActive(active);
+        backButton.gameObject.SetActive(active);
+        exitButton.gameObject.SetActive(active);
     }
 
     public void CancelQueue()
     {
+        // Disconnect from the server
         PhotonNetwork.Disconnect();
 
+        // Update the queue display text
         UpdateQueueText(QueueState.Cancelled);
+
+        // Disabble the cancel queue button
         cancelQueueButton.gameObject.SetActive(false);
+
+        // Enable the main menu buttons
         changeStateQueueButtons(true);
     }
 }

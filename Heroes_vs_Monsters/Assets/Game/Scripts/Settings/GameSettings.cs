@@ -15,25 +15,26 @@ public class GameSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Load the settings
         LoadSettings();
+
+        // If there is music
         if(music != null)
         {
+            // Play it after some time
             music.PlayDelayed(0.1f);
         }    
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
-
-
     public void SetVolume()
     {
+        // Get the slider value
         float sliderValue = volumeSlider.value;
+
+        // Set the initial volume value
         float volume = -10;
 
+        // Change the volume value (using the slider value)
         switch (sliderValue)
         {
             case 0:
@@ -77,28 +78,37 @@ public class GameSettings : MonoBehaviour
                 break;
         }
 
+        // Set the new volume value
         audioMixer.SetFloat("Music", volume);
+
+        // Update the current value
         currentVolume = volume;
+
+        // Save new settings
         SaveSettings();
     }
 
     public void SaveSettings()
     {
+        // Change player preferences
         PlayerPrefs.SetFloat("VolumePreference",
                    volumeSlider.value);
     }
 
     public void LoadSettings()
     {
+        // If there is a VolumePreference key in the player preferences
         if (PlayerPrefs.HasKey("VolumePreference"))
         {
+            // Get the volume value
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
         }    
-        else volumeSlider.value = 4;
+        else volumeSlider.value = 4; // If that key does not exit, set a default volume
     }
 
     public float GetPreferredVolume()
     {
+        // Return current volume
         return currentVolume;
     }
 }

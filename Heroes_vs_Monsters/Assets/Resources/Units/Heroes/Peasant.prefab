@@ -169,9 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   defense: 10
-  cost: 5
+  cost: 1
   speed: 0.6
-  attackRange: 0.9
+  attackRange: 0.7
   damage: 50
   phase: 1
   scale: 0.7

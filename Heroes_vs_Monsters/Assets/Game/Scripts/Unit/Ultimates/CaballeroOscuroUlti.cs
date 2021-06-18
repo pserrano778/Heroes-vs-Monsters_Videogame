@@ -8,14 +8,17 @@ public class CaballeroOscuroUlti : Ultimate
     public int ultimateDamage;
     public float timeToRemoveDarkMark;
 
+    // Lock to avoid two Dark Knights cast the ultimate at the same time
     private static readonly object castingUltimate = new object();
 
     private bool casting = false;
 
     protected override IEnumerator castUltimate()
     {
+        // Lock the object
         lock (castingUltimate)
         {
+            // See if he can 
             if (CanCastUltimate())
             {
                 casting = true;

@@ -11,7 +11,10 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get the Basic Behaviour component
         unit = GetComponentInParent<BasicBehaviour>();
+
+        // Change the health bar colour to the allied Units (or nexus if player is using heroes)
         if ((NetworkManager.GetTypeOfPlayer() == "Heroes" && (unit.tag == "Hero" || unit.tag == "Nexus")) || 
             (NetworkManager.GetTypeOfPlayer() == "Monsters" && unit.tag == "Monster"))
         {
@@ -22,6 +25,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Change the bar fill origin to follow the parent orientation
         if (transform.parent.localScale.x < 0)
         {
             healthBar.fillOrigin = 1;
@@ -30,13 +34,20 @@ public class HealthBar : MonoBehaviour
         {
             healthBar.fillOrigin = 0;
         }
+
+        // Get the current unit health
         float currentHealth = unit.getCurrentHealth();
+
+        // Get the unit max health
         float maxHealth = unit.health;
+
+        // Set the percetage of health
         healthBar.fillAmount = currentHealth / maxHealth;
 
+        // Disable the bar if the unit has died
         if (currentHealth <= 0 && unit.tag != "Nexus")
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
     }
 }

@@ -6,7 +6,6 @@ using System;
 
 public class SpawnUnit : MonoBehaviour
 {
-    public Camera camera;
     private UnitBehaviour prefab;
     private bool unitSelected;
     public ResourceManagement resourceManager;

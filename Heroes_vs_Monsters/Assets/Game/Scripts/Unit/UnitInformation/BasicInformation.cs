@@ -6,14 +6,14 @@ public class BasicInformation : MonoBehaviour
 {
     public string description;
     public bool hasUltimate = false;
-    public bool hasPasive = false;
-    public string pasiveDescription;
+    public bool hasPassive = false;
+    public string passiveDescription;
     public string ultimateDescription;
 
     private void Start()
     {
         description = description.Replace("@", System.Environment.NewLine);
-        pasiveDescription = pasiveDescription.Replace("@", System.Environment.NewLine);
+        passiveDescription = passiveDescription.Replace("@", System.Environment.NewLine);
         ultimateDescription = ultimateDescription.Replace("@", System.Environment.NewLine);
     }
 }

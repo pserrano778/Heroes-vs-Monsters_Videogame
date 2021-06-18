@@ -11,6 +11,7 @@ public class PlayAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Play audio at start
         audioSource.Play();
     }
 

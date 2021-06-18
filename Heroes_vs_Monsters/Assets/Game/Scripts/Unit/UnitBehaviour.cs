@@ -65,15 +65,7 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
     {
         while (state == State.Idle)
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
-            if (enemies.Length > 0)
-            {
-                int newTarget = TargetEnemy(enemies);
-                if (newTarget > -1)
-                {
-                    target = enemies[newTarget].GetComponent<UnitBehaviour>();
-                }
-            }
+            TargetNewEnemy();
 
             if (target != null)
             {
@@ -85,7 +77,7 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
         GoToNextState();
     }
 
-    protected IEnumerator FollowState()
+    protected virtual IEnumerator FollowState()
     {
         while (state == State.Follow)
         {
@@ -232,6 +224,19 @@ public class UnitBehaviour : BasicBehaviour, IPunInstantiateMagicCallback
     {
         this.tag = "Untagged";
         body2d.velocity = new Vector2(0, 0);
+    }
+
+    protected void TargetNewEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(typeOfEnemy);
+        if (enemies.Length > 0)
+        {
+            int newTarget = TargetEnemy(enemies);
+            if (newTarget > -1)
+            {
+                target = enemies[newTarget].GetComponent<UnitBehaviour>();
+            }
+        }
     }
 
     public virtual int TargetEnemy(GameObject[] enemies)

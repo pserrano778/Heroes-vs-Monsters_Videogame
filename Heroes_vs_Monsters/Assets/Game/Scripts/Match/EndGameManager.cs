@@ -16,6 +16,7 @@ public class EndGameManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        // Set finished status and interface to false
         hasFinished = false;
         endGameText.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
@@ -23,21 +24,37 @@ public class EndGameManager : MonoBehaviourPunCallbacks
 
     public void GameOver(string winner)
     {
+        // If it has not finished
         if (!hasFinished)
         {
+            // Active end Game text
             endGameText.SetActive(true);
+
+            // Stop the game
             Time.timeScale = 0;
+
+            // If I am the winner
             if (NetworkManager.GetTypeOfPlayer() == winner)
             {
+                // Change end game Text
                 endGameText.GetComponent<TextMesh>().text = NetworkManager.GetTypeOfPlayer() + " win";
+
+                // Play the winner theme
                 audioManager.PlayWinTheme();
             }
-            else{
+            else{ // If I am the loser
+
+                // Change end game Text
                 endGameText.GetComponent<TextMesh>().text = NetworkManager.GetTypeOfPlayer() + " lose";
+
+                // Play the loser theme
                 audioManager.PlayLoseTheme();
             }
 
+            // Activate the button to return to the main menu
             mainMenuButton.gameObject.SetActive(true);
+
+            // Set finished state to true
             hasFinished = true;
         }
     }

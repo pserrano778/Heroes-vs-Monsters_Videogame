@@ -73,10 +73,12 @@
     <Compile Include="Assets\Game\Scripts\Match\ResourceManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Match\TimeManagement.cs" />
     <Compile Include="Assets\Game\Scripts\Network\NetworkManager.cs" />
-    <Compile Include="Assets\Game\Scripts\Network\NetworkPlayerSpawner.cs" />
     <Compile Include="Assets\Game\Scripts\Resources\ChangeTypeOfResources.cs" />
     <Compile Include="Assets\Game\Scripts\Settings\GameSettings.cs" />
     <Compile Include="Assets\Game\Scripts\Settings\SettingsButton.cs" />
+    <Compile Include="Assets\Game\Scripts\Start\GoToCredits.cs" />
+    <Compile Include="Assets\Game\Scripts\Start\GoToLobby.cs" />
+    <Compile Include="Assets\Game\Scripts\Start\GoToTitleScreen.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Bars\HealthBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\Bars\UltimateBar.cs" />
     <Compile Include="Assets\Game\Scripts\Unit\BasicBehaviour.cs" />

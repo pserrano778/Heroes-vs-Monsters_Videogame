@@ -11,12 +11,14 @@ public class UltimateBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get the Ultimate component
         unit = GetComponentInParent<Ultimate>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Change the bar fill origin to follow the parent orientation
         if (transform.parent.localScale.x < 0)
         {
             ultimateBar.fillOrigin = 1;
@@ -25,13 +27,20 @@ public class UltimateBar : MonoBehaviour
         {
             ultimateBar.fillOrigin = 0;
         }
+
+        // Get the current unit energy
         float currentEnergy = unit.getEnergy();
+
+        // Get the unit max energy
         float maxEnergy = unit.maxEnergy;
+
+        // Set the percetage of energy
         ultimateBar.fillAmount = currentEnergy / maxEnergy;
 
+        // Disable the bar if the unit has died
         if (GetComponentInParent<UnitBehaviour>().getCurrentHealth() <= 0)
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
     }
 }
