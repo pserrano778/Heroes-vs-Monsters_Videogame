@@ -12,6 +12,7 @@ public class BasicInformation : MonoBehaviour
 
     private void Start()
     {
+        // Set the general, passive and ultimate descriptions replacing @ with end of line
         description = description.Replace("@", System.Environment.NewLine);
         passiveDescription = passiveDescription.Replace("@", System.Environment.NewLine);
         ultimateDescription = ultimateDescription.Replace("@", System.Environment.NewLine);

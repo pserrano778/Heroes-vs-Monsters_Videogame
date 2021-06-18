@@ -22,14 +22,17 @@ public class SpawnUnit : MonoBehaviour
     {
         string typeOfPlayer = NetworkManager.GetTypeOfPlayer();
 
-        // set spawn points and prefabs to player
-        // delete object depending on type of player
+        // If the player is playing with Heroes
         if (typeOfPlayer == "Heroes")
         {
+            // Disable monsters spawns
             spawnPoints = monstersSpawnPoints;
             ChangeVisibility(false);
 
+            // Set the spawns points to Heroes
             spawnPoints = heroesSpawnPoints;
+
+            // Disable Monsters
             for (int i = 0; i < monstersPrefabs.Length; i++)
             {
                 monstersPrefabs[i].SetActive(false);
@@ -37,63 +40,100 @@ public class SpawnUnit : MonoBehaviour
         }
         else
         {
+            // Disable Heroes Spawns
             spawnPoints = heroesSpawnPoints;
             ChangeVisibility(false);
 
+            // Set the spawns points to Monsters
             spawnPoints = monstersSpawnPoints;
 
+            // Disable Heroes
             for (int i = 0; i < heroesPrefabs.Length; i++)
             {
                 heroesPrefabs[i].SetActive(false);
             }
         }
 
+        // Disable Spawns
         ChangeVisibility(false);
+
+        // No unit selected
         unitSelected = false;
     }
 
     void Update()
     {
+        // If the playes has made left click
         if (Input.GetMouseButtonDown(0))
         {
+            // Check if it has collide with something in layer Spawn
             Collider2D colliderHit = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition), LayerMask.GetMask("Spawn"));
-            if (colliderHit)
+
+            // If it has collide
+            if (colliderHit) 
             {
+                // If it has collide with a Prefab Tag and there is no any unit selected
                 if (colliderHit.tag == "Prefab" && !unitSelected)
                 {
+                    // Set the prefab
                     prefab = colliderHit.GetComponent<UnitBehaviour>();
 
+                    // If it has enough resources and is in the right phase
                     if (HasEnoughResources(prefab.cost) && IsInRightPhase(prefab.phase))
                     {
+                        // Enable the spawns
                         unitSelected = true;
                         ChangeVisibility(true);
                     }
                     else
                     {
+                        // set prefab to null
                         prefab = null;
                     }
                 }
 
+                // If it has collide with a Spawn and there is an unit selected
                 else if (colliderHit.tag == "Spawn" && unitSelected)
                 {      
+                    // Get the spawner
                     Spawner selectedSpawner = colliderHit.GetComponent<Spawner>();
 
+                    // Get the spawn pooint
                     Vector3 spawnPoint = selectedSpawner.getSpawnPoint();
+
+                    // Increment 'z' component for layer order
                     spawnPoint[2] += unitCounter;
                     unitCounter++;
+
+                    // Get the photon view
                     PhotonView photonView = PhotonView.Get(this);
+
+                    // Instantiate the Unit
                     GameObject newUnit = PhotonNetwork.Instantiate("Units/" + NetworkManager.GetTypeOfPlayer() + "/" + prefab.name, spawnPoint, Quaternion.identity, 0);
+
+                    // Set the information (lane and type of unit
                     newUnit.GetComponent<UnitBehaviour>().newInformation(selectedSpawner.lane, selectedSpawner.typeOfUnit);
-                    //photonView.RPC("SpawnUnitAtPointRPC", RpcTarget.All, prefab.name, spawnPoint, selectedSpawner.typeOfUnit, selectedSpawner.lane);
+
+                    // Remove the cost from the resources
                     resourceManager.DecreaseResources(prefab.cost);
+
+                    // Update resources in UI
                     resourceManager.UpdateCounterText();
+
+                    // Change colours (if needed)
                     resourceManager.UpdateUnitsColours();
+
+                    // Disables spawners
                     ChangeVisibility(false);
+
+                    // No unit selected now
                     unitSelected = false;
                 }
-
                 else {
+                    // Disables spawners
                     ChangeVisibility(false);
+
+                    // No unit selected now
                     unitSelected = false;
                 }
             }
@@ -103,50 +143,22 @@ public class SpawnUnit : MonoBehaviour
 
     void ChangeVisibility(bool visible)
     {
+        // Enable or Disable all spawns points
         for (int i=0; i<spawnPoints.Length; i++)
         {
             spawnPoints[i].SetActive(visible);
         }
     }
 
-    [PunRPC]
-    public void SpawnUnitAtPointRPC(string nombrePrefab, Vector3 spawnPoint, string tag, int lane)
-    {
-        UnitBehaviour newUnit = Instantiate(Resources.Load("Units/" + NetworkManager.GetTypeOfPlayer() + "/" + nombrePrefab) as GameObject, spawnPoint, Quaternion.identity).GetComponent<UnitBehaviour>();
-        newUnit.tag = tag;
-        newUnit.GetComponent<UnitBehaviour>().setLane(lane);
-        if(tag == "Monster")
-        {
-            newUnit.GetComponent<MonsterBehaviour>().nexusStone = nexusStone;
-        }
-    }
-
-    private UnitBehaviour FindUnit(string name)
-    {
-        UnitBehaviour unit = null;
-
-        GameObject[] units = GameObject.FindGameObjectsWithTag("Prefab");
-
-        bool encontrado = false;
-
-        for (int i=0; i<units.Length && !encontrado; i++)
-        {
-            if (units[i].name == name)
-            {
-                encontrado = true;
-                unit = units[i].GetComponent<UnitBehaviour>();
-            }
-        }
-        return unit;
-    }
-
     private bool HasEnoughResources(int cost)
     {
+        // Return if the player has enough resources
         return resourceManager.GetResources() >= cost;   
     }
 
     private bool IsInRightPhase(int phase)
     {
+        // Return if the player is in a concrete phase
         return resourceManager.GetPhase() >= phase;
     }
 }

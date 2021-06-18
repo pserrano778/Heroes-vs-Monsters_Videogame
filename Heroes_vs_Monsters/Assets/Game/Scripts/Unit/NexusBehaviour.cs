@@ -10,10 +10,13 @@ public class NexusBehaviour : BasicBehaviour
     [PunRPC]
     public override void takeDamageRPC(int damage)
     {
+        // Reduce the health
         currentHealth -= damage;
 
+        // If it has been destroyed (health <= 0)
         if (currentHealth <= 0)
         {
+            // Monsters win the match
             endGameManager.GameOver("Monsters");
         }
     }

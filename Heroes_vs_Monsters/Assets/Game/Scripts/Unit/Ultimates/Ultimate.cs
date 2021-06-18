@@ -36,7 +36,6 @@ public abstract class Ultimate : MonoBehaviour
                 }
             }
         }
-        
     }
 
     protected virtual void TryCastUltimate()

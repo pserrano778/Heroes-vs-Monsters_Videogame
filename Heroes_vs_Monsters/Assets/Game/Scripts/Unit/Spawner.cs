@@ -12,13 +12,15 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set the spawner coords
         spawnPoint[0] = gameObject.transform.position.x;
         spawnPoint[1] = gameObject.transform.position.y;
         spawnPoint[2] = 0;
     }
 
-    public Vector2 getSpawnPoint()
+    public Vector3 getSpawnPoint()
     {
+        // return the vector
         return spawnPoint;
     }
 }
