@@ -174,7 +174,7 @@ MonoBehaviour:
   speed: 0.5
   attackRange: 1
   damage: 300
-  phase: 1
+  phase: 4
   scale: 3.3
   anim: {fileID: 2090311083366529407}
   typeOfEnemy: Hero
