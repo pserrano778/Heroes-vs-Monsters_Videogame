@@ -6832,7 +6832,7 @@ MonoBehaviour:
   description: Weak and slow, but very tanky.
   hasUltimate: 0
   hasPassive: 1
-  passiveDescription: 
+  passiveDescription: Its attacks deal damage to every @hero in its range.
   ultimateDescription: 
 --- !u!1 &1094030039
 GameObject:
@@ -8597,7 +8597,7 @@ MonoBehaviour:
   description: A powerful mage that deals @damage using fire spells.
   hasUltimate: 0
   hasPassive: 1
-  passiveDescription: 
+  passiveDescription: His fire can hit several monsters @at the same time.
   ultimateDescription: 
 --- !u!1 &1330615506
 GameObject:
@@ -9973,7 +9973,8 @@ MonoBehaviour:
   description: A foreign nobleman which uses @ the most advanced katana techniques.
   hasUltimate: 0
   hasPassive: 1
-  passiveDescription: 
+  passiveDescription: His third consecutive attack @will deal extra damage to @all
+    monsters in front of him.
   ultimateDescription: 
 --- !u!1 &1630171089
 GameObject:
@@ -10155,7 +10156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebff3aaae2f4d14c907b595cecc2b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 406541186}
   resourceManager: {fileID: 1821451736}
   heroesSpawnPoints:
   - {fileID: 443073542}
@@ -12868,5 +12868,6 @@ MonoBehaviour:
   description: The strongest monster and @source of all evil.
   hasUltimate: 0
   hasPassive: 1
-  passiveDescription: 
+  passiveDescription: 'When this Unit assist in a a kill, @it will bite the next
+    enemy, dealing @extra damage.(editado) '
   ultimateDescription: 
