@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1477789729187202676}
   - component: {fileID: 1737155241405661087}
   - component: {fileID: 396307121327814535}
+  - component: {fileID: 9202634592323467276}
   m_Layer: 0
   m_Name: Fire Mage
   m_TagString: Prefab
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 250
   defense: 5
-  cost: 8
+  cost: 4
   speed: 0.5
   attackRange: 1.3
   damage: 90
@@ -245,6 +246,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &9202634592323467276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216181157703676360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9d17e0cacde1944a1da9370966cdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 4293118940474132620}
 --- !u!1001 &4334680790387081612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,3 +344,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4334680790387081612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4293118940474132620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 555026701987154176, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4334680790387081612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

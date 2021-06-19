@@ -219,7 +219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452772432884036567}
-  - component: {fileID: 3393268099279731020}
   m_Layer: 0
   m_Name: UltimateBar
   m_TagString: Untagged
@@ -242,19 +241,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3393268099279731020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531960592076774105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c826a1b43d68249a9996d3816668a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ultimateBar: {fileID: 555026701987154176}
 --- !u!1 &7473027460574008014
 GameObject:
   m_ObjectHideFlags: 0

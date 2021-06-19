@@ -847,18 +847,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636450355}
-  m_Text: '- Startled Pixels
-
-    - SVEN THOLE
-
-    - BRACKEYS
-
-    - LUIZ MELO
-
-    -
-    SZADI ART.
-
-    - TINY WORLDS'
+  m_Text: "- BRACKEYS\n- LUIZ MELO\n- Startled Pixels\n- SVEN THOLE \n- SZADI ART.\n-
+    TINY WORLDS"
   m_OffsetZ: 0
   m_CharacterSize: 20
   m_LineSpacing: 1
@@ -2552,7 +2542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639943925}
   m_Layer: 0
-  m_Name: DeveloperTeam
+  m_Name: DevelopmentTeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2761,7 +2751,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773096077}
-  m_Text: Developer team
+  m_Text: Development team
   m_OffsetZ: 0
   m_CharacterSize: 25
   m_LineSpacing: 1

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class UltimateBar : MonoBehaviour
 {
@@ -12,14 +13,14 @@ public class UltimateBar : MonoBehaviour
     void Start()
     {
         // Get the Ultimate component
-        unit = GetComponentInParent<Ultimate>();
+        unit = GetComponent<Ultimate>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Change the bar fill origin to follow the parent orientation
-        if (transform.parent.localScale.x < 0)
+        // Change the bar fill origin to follow the orientation
+        if (transform.localScale.x < 0)
         {
             ultimateBar.fillOrigin = 1;
         }
@@ -38,9 +39,15 @@ public class UltimateBar : MonoBehaviour
         ultimateBar.fillAmount = currentEnergy / maxEnergy;
 
         // Disable the bar if the unit has died
-        if (GetComponentInParent<UnitBehaviour>().getCurrentHealth() <= 0)
+        if (GetComponent<UnitBehaviour>().getCurrentHealth() <= 0 && GetComponent<PhotonView>().IsMine)
         {
-            gameObject.SetActive(false);
+            GetComponent<PhotonView>().RPC("DisableUltimateBar", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    public void DisableUltimateBar()
+    {
+        ultimateBar.transform.parent.gameObject.SetActive(false);
     }
 }

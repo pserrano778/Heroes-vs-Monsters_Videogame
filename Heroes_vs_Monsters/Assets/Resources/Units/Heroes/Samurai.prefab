@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -56886372438103999}
   - component: {fileID: -5361001595495171492}
   - component: {fileID: -3243494392637589401}
+  - component: {fileID: 4564819272541145462}
   m_Layer: 0
   m_Name: Samurai
   m_TagString: Prefab
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
-  defense: 15
+  defense: 20
   cost: 16
   speed: 0.75
   attackRange: 1
@@ -250,6 +251,19 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &4564819272541145462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400587216905765420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9d17e0cacde1944a1da9370966cdf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 4746675203743920174}
 --- !u!1001 &5074512427132041518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,3 +349,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5074512427132041518}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4746675203743920174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 555026701987154176, guid: c7c72c1aa5bae6148bd1b232c83a5c1e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5074512427132041518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

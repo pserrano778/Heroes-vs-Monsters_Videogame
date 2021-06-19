@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class HealthBar : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         // Get the Basic Behaviour component
-        unit = GetComponentInParent<BasicBehaviour>();
+        unit = GetComponent<BasicBehaviour>();
 
         // Change the health bar colour to the allied Units (or nexus if player is using heroes)
         if ((NetworkManager.GetTypeOfPlayer() == "Heroes" && (unit.tag == "Hero" || unit.tag == "Nexus")) || 
@@ -25,8 +26,8 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Change the bar fill origin to follow the parent orientation
-        if (transform.parent.localScale.x < 0)
+        // Change the bar fill origin to follow the orientation
+        if (transform.localScale.x < 0)
         {
             healthBar.fillOrigin = 1;
         }
@@ -45,9 +46,15 @@ public class HealthBar : MonoBehaviour
         healthBar.fillAmount = currentHealth / maxHealth;
 
         // Disable the bar if the unit has died
-        if (currentHealth <= 0 && unit.tag != "Nexus")
+        if (currentHealth <= 0 && unit.tag != "Nexus" && GetComponent<PhotonView>().IsMine)
         {
-            gameObject.SetActive(false);
+            GetComponent<PhotonView>().RPC("DisableHealthBar", RpcTarget.All);
         }
+    }
+
+    [PunRPC]
+    private void DisableHealthBar()
+    {
+        healthBar.transform.parent.gameObject.SetActive(false);
     }
 }
