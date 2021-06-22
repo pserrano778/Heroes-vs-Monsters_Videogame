@@ -14,13 +14,14 @@ public class MageBehaviour : UnitBehaviour
         {
             // Get the enemy Unit
             UnitBehaviour enemy = enemies[i].GetComponent<UnitBehaviour>();
-
+            print("enemy: " + enemy.transform.position.x);
+            print("mage: " + transform.position.x);
             // Check if the enemy is in the same lane and is not dead
             if (enemy.getLane() == this.getLane() && enemy.getCurrentHealth() > 0)
             {
                 // Check if the enemy is in front of the mage and is inside his range
-                if ((transform.localScale.x < 0 && (enemy.transform.position.x - transform.position.x >= -attackRange))
-                    || (transform.localScale.x >= 0 && (enemy.transform.position.x - transform.position.x <= attackRange)))
+                if ((transform.localScale.x >= 0 && (enemy.transform.position.x - transform.position.x >= -attackRange) && enemy.transform.position.x <= transform.position.x)
+                    || (transform.localScale.x < 0 && (enemy.transform.position.x - transform.position.x <=  attackRange) && enemy.transform.position.x >= transform.position.x))
                 {
                     // Make the damage
                     enemy.takeDamage(damage);
