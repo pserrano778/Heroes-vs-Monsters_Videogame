@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -424,9 +424,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 26400000
       m_LastClickedID: 0
-      m_ExpandedIDs: 9ec7ffffb0c7ffff6acdffff7ecdffff96cdffffa8cdfffff2cdffff04ceffffbad5ffffd2d5ffffecd5fffffed5ffffeee1fffff8e1fffffce1ffff12e2ffff06e8ffffd2f0ffffe4f0ffffaaf8ffffc6f8ffffe4f8fffffaf8ffff5efbfffff4ffffff
+      m_ExpandedIDs: e6edffff12efffff24effffff8f6ffff2cf7ffff62f7ffff90f7ffff5efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -769,19 +769,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game/Scripts/Unit
+    - Assets/Game/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game/Scripts/Unit
+  - Assets/Game/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Usuario\Documents\GitHub\Heroes-vs-Monsters_Videogame\Heroes_vs_Monsters
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: 46400000
-    m_LastClickedID: 16454
+    m_SelectedIDs: 26400000
+    m_LastClickedID: 16422
     m_ExpandedIDs: 0000000020400000224000002440000026400000284000005a400000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

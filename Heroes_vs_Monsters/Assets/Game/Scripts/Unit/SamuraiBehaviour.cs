@@ -53,8 +53,8 @@ public class SamuraiBehaviour : UnitBehaviour
             if (enemy.getLane() == this.getLane() && enemy.getCurrentHealth() > 0)
             {
                 // If it is in front of the samurai and inside his range
-                if ((transform.localScale.x < 0 && (enemy.transform.position.x - transform.position.x >= -attackRange))
-                    || (transform.localScale.x >= 0 && (enemy.transform.position.x - transform.position.x <= attackRange)))
+                if ((transform.localScale.x >= 0 && (enemy.transform.position.x - transform.position.x >= -attackRange) && enemy.transform.position.x <= transform.position.x)
+                    || (transform.localScale.x < 0 && (enemy.transform.position.x - transform.position.x <= attackRange) && enemy.transform.position.x >= transform.position.x))
                 {
                     // Do the damage
                     enemy.takeDamage(damage);
