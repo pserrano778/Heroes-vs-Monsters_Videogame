@@ -1,2 +1,2 @@
 # Heroes-vs-Monsters_Videogame
-Tower defense videgame
+Tower defense videogame, made with Unity and programmed in C#.
